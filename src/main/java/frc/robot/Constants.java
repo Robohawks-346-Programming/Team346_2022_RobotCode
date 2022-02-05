@@ -40,4 +40,7 @@ public final class Constants {
     public static final int CLIMBER_PNUEMATIC_1_OUT             = 0;
     public static final int CLIMBER_PNUEMATIC_2_IN              = 0; 
     public static final int CLIMBER_PNEUMATIC_2_OUT             = 0;
+
+    //Shooter Motor ID
+    public static final int SHOOTER_MOTOR_ID                    = 0;
 }
