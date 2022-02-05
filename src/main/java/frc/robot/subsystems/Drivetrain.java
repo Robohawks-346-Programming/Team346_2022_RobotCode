@@ -15,7 +15,7 @@ public class Drivetrain {
     CANSparkMax rightPrimary, rightReplica_1, rightReplica_2;
     MotorControllerGroup leftDrive, rightDrive;
     DifferentialDrive drive;
-    DoubleSolenoid gearShifter1;
+    DoubleSolenoid gearShifter;
     public Drivetrain() {
         leftPrimary = new CANSparkMax(Constants.LEFT_PRIMARY_MOTOR_ID, MotorType.kBrushless);  
         leftReplica_1 = new CANSparkMax(Constants.LEFT_REPLICA_1_MOTOR_ID, MotorType.kBrushless);
@@ -30,7 +30,7 @@ public class Drivetrain {
 
         drive = new DifferentialDrive(leftDrive, rightDrive);
 
-        gearShifter1 = new DoubleSolenoid(PneumaticsModuleType.CTREPCM, Constants.LOW_GEAR_PNUEMATIC_ID, Constants.HIGH_GEAR_PNUEMATIC_ID);
+        gearShifter = new DoubleSolenoid(PneumaticsModuleType.CTREPCM, Constants.LOW_GEAR_PNUEMATIC_ID, Constants.HIGH_GEAR_PNUEMATIC_ID);
     }
 
     public void arcadeDrive(double moveSpeed, double rotateSpeed) {
@@ -42,14 +42,14 @@ public class Drivetrain {
     }
 
     public void gearShifterOff() {
-        gearShifter1.set(Value.kOff);
+        gearShifter.set(Value.kOff);
     }
 
     public void shiftHighGear() {
-        gearShifter1.set(Value.kReverse);
+        gearShifter.set(Value.kReverse);
     }
 
     public void shiftLowGear() {
-        gearShifter1.set(Value.kForward);
+        gearShifter.set(Value.kForward);
     }
 }
