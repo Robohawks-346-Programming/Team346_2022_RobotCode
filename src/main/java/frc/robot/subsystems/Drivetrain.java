@@ -3,6 +3,9 @@ package frc.robot.subsystems;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
+import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.PneumaticsModuleType;
+import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
 import frc.robot.Constants;
@@ -12,6 +15,7 @@ public class Drivetrain {
     CANSparkMax rightPrimary, rightReplica_1, rightReplica_2;
     MotorControllerGroup leftDrive, rightDrive;
     DifferentialDrive drive;
+    DoubleSolenoid gearShifter;
 
     public Drivetrain() {
         leftPrimary = new CANSparkMax(Constants.LEFT_PRIMARY_MOTOR_ID, MotorType.kBrushless);  
@@ -26,6 +30,8 @@ public class Drivetrain {
         rightDrive.setInverted(true);
 
         drive = new DifferentialDrive(leftDrive, rightDrive);
+
+        gearShifter = new DoubleSolenoid(PneumaticsModuleType.CTREPCM, Constants.LOW_GEAR_PNUEMATIC_ID, Constants.HIGH_GEAR_PNUEMATIC_ID);
     }
 
     public void arcadeDrive(double moveSpeed, double rotateSpeed) {
@@ -34,5 +40,17 @@ public class Drivetrain {
     
     public void curvatureDrive(double moveSpeed, double rotateSpeed, boolean buttonPressed) {
         drive.curvatureDrive(moveSpeed, rotateSpeed, buttonPressed);
+    }
+
+    public void gearShifterOff() {
+        gearShifter.set(Value.kOff);
+    }
+
+    public void shiftHighGear() {
+        gearShifter.set(Value.kReverse);
+    }
+
+    public void shiftLowGear() {
+        gearShifter.set(Value.kForward);
     }
 }

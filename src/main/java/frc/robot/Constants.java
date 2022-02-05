@@ -22,6 +22,9 @@ public final class Constants {
     public static final int RIGHT_REPLICA_1_MOTOR_ID            = 0;
     public static final int RIGHT_REPLICA_2_MOTOR_ID            = 0;
 
+    //Drivetrain pnuematic channels
+    public static final int HIGH_GEAR_PNUEMATIC_ID              = 0;
+    public static final int LOW_GEAR_PNUEMATIC_ID               = 0;
     //Intake motor ID
     public static final int INTAKE_MOTOR_ID                     = 0;
 
