@@ -5,13 +5,16 @@ import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.PneumaticsModuleType;
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
+import edu.wpi.first.wpilibj.interfaces.Gyro;
 import frc.robot.Constants;
+import edu.wpi.first.wpilibj.ADIS16448_IMU;
 
 public class Climber {
     // Initialize Variables
     CANSparkMax climberControl;
     DoubleSolenoid climberPneumatic1;
     DoubleSolenoid climberPneumatic2;
+    ADIS16448_IMU gyro;
     
 
     public Climber() {
@@ -33,5 +36,38 @@ public class Climber {
     public void climberPneumaticRetract() {
         climberPneumatic1.set(Value.kReverse);
         climberPneumatic2.set(Value.kReverse);
+    }
+
+    public void climberArmExtend(double climberSpeed){
+        climberControl.set(climberSpeed);
+        
+    }
+
+    public void climberArmRetract(double climberSpeed){
+        climberControl.set(-climberSpeed);
+    }
+
+    public void climberStageOne(double climberSpeed){
+        climberArmExtend(climberSpeed);
+        climberArmRetract(climberSpeed); //need to add timing for everything
+    }
+
+    public void climberStageTwo(double climberSpeed){
+        climberPneumaticExtend();
+        climberArmExtend(climberSpeed);
+        climberArmRetract(climberSpeed);
+        climberPneumaticRetract();
+    }
+
+    public void climberStageThree(double climberSpeed,double accelMax){
+        if(gyro.getAccelX()<accelMax){
+            climberStageTwo(climberSpeed);
+        }
+    }
+
+    public void fullClimb(double climberSpeed, double accelMax){
+        climberStageOne(climberSpeed);
+        climberStageTwo(climberSpeed);
+        climberStageThree(climberSpeed, accelMax);
     }
 }
