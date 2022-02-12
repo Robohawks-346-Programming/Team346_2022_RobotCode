@@ -43,4 +43,16 @@ public final class Constants {
 
     //Shooter Motor ID
     public static final int SHOOTER_MOTOR_ID                    = 0;
+<<<<<<< Updated upstream
+=======
+
+    //Shooter motor speed
+    public static final double SHOOTER_MOTOR_SPEED              = 0;
+
+    //Limelight variables
+    public static final double TARGET_HEIGHT                    = 0;
+    public static final double SHOOTER_HEIGHT                   = 0;
+    public static final double LIMELIGHT_HEIGHT                 = 0;
+    
+>>>>>>> Stashed changes
 }
