@@ -9,15 +9,23 @@ import frc.robot.Constants;
 
 public class Climber {
     // Initialize Variables
-    CANSparkMax climberControl;
+    CANSparkMax climber;
     DoubleSolenoid climberPneumatic1;
     DoubleSolenoid climberPneumatic2;
     
 
     public Climber() {
-        climberControl = new CANSparkMax(Constants.CLIMBER_MOTOR_ID, MotorType.kBrushless);
+        climber = new CANSparkMax(Constants.CLIMBER_MOTOR_ID, MotorType.kBrushless);
         climberPneumatic1 = new DoubleSolenoid(PneumaticsModuleType.CTREPCM, Constants.CLIMBER_PNUEMATIC_1_OUT, Constants.CLIMBER_PNEUMATIC_1_IN);
         climberPneumatic2 = new DoubleSolenoid(PneumaticsModuleType.CTREPCM, Constants.CLIMBER_PNEUMATIC_2_OUT, Constants.CLIMBER_PNUEMATIC_2_IN);
+    }
+
+    public void climberExtend(double climberSpeed) {
+        climber.set(climberSpeed);
+    }
+
+    public void climberRetract(double climberSpeed) {
+        climber.set(-climberSpeed);
     }
 
     public void climberPneumaticOff() {

@@ -18,8 +18,12 @@ public class Intake {
         intakeSolenoid = new DoubleSolenoid(PneumaticsModuleType.CTREPCM, Constants.INTAKE_OUT_PNUEMATIC_ID, Constants.INTAKE_IN_PNUEMATIC_ID);
     }
 
-    public void intakeBall(double intakeSpeed) {
+    public void intakeBallIn(double intakeSpeed) {
         intake.set(intakeSpeed);
+    }
+
+    public void intakeBallOut(double intakeSpeed) {
+        intake.set(-intakeSpeed);
     }
 
     public void intakeOff() {

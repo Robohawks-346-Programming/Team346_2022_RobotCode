@@ -11,8 +11,12 @@ public class Shooter {
         shooter = new CANSparkMax(Constants.SHOOTER_MOTOR_ID, MotorType.kBrushless);
      }
 
-     public void shooterBall(double shooterSpeed) {
+     public void shootBall(double shooterSpeed) {
          shooter.set(shooterSpeed);
+     }
+
+     public void shootBallReverse(double shooterSpeed) {
+         shooter.set(-shooterSpeed);
      }
 
 }
