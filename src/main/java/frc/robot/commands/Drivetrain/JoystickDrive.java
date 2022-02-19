@@ -7,8 +7,6 @@ package frc.robot.commands.Drivetrain;
 import frc.robot.OI;
 import frc.robot.Robot;
 import frc.robot.subsystems.Drivetrain;
-import frc.robot.subsystems.ExampleSubsystem;
-import edu.wpi.first.wpilibj.PS4Controller;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
 /** An example command that uses an example subsystem. */
@@ -31,8 +29,8 @@ public class JoystickDrive extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    Robot.drivetrain.arcadeDrive(OI.driverController.getRawAxis(PS4Controller.Axis.kLeftY),
-        OI.driverController.getRawAxis(PS4Controller.Axis.kRightX));
+    Robot.drivetrain.arcadeDrive(OI.driverController.getLeftY(),
+        OI.driverController.getRightX());
   }
 
   // Called once the command ends or is interrupted.

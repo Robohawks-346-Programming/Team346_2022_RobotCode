@@ -4,12 +4,8 @@
 
 package frc.robot.commands.Intake;
 
-import frc.robot.Constants;
-import frc.robot.OI;
 import frc.robot.Robot;
 import frc.robot.subsystems.Intake;
-import frc.robot.subsystems.ExampleSubsystem;
-import edu.wpi.first.wpilibj.PS4Controller;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
 /** An example command that uses an example subsystem. */
