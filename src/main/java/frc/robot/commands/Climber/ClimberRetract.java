@@ -41,6 +41,5 @@ public class ClimberRetract extends CommandBase {
   @Override
   public boolean isFinished() {
     return false;
-    // Use limitswitch
   }
 }

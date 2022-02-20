@@ -75,4 +75,11 @@ public class Climber extends SubsystemBase{
         climberStageThree(climberSpeed, accelMax);
     }
 
+    public boolean getTopLimitSwitch() {
+        return topLimitSwitch.get();
+    }
+
+    public boolean getBottomLimitSwitch() {
+        return bottomLimitSwitch.get();
+    }
 }
