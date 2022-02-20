@@ -30,7 +30,7 @@ public class ClimberExtend extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    Robot.climber.climberExtend(Constants.CLIMBER_MOTOR_SPEED);
+    Robot.climber.climberArmExtend(Constants.CLIMBER_MOTOR_SPEED);
   }
 
   // Called once the command ends or is interrupted.
