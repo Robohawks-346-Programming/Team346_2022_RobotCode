@@ -40,6 +40,9 @@ public class ClimberRetract extends CommandBase {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return false;
+    if(Robot.climber.getBottomLimitSwitch()) 
+      return true;
+    else 
+      return false;
   }
 }
