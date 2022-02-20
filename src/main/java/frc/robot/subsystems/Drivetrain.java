@@ -2,8 +2,8 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import com.revrobotics.CANSparkMax;
+import com.revrobotics.RelativeEncoder;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
-
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.PneumaticsModuleType;
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
@@ -14,6 +14,7 @@ import frc.robot.Constants;
 public class Drivetrain extends SubsystemBase {
     CANSparkMax leftPrimary, leftReplica_1, leftReplica_2;
     CANSparkMax rightPrimary, rightReplica_1, rightReplica_2;
+    RelativeEncoder leftEncoder, rightEncoder;
     MotorControllerGroup leftDrive, rightDrive;
     DifferentialDrive drive;
     DoubleSolenoid gearShifter;
@@ -25,6 +26,9 @@ public class Drivetrain extends SubsystemBase {
         rightReplica_1 = new CANSparkMax(Constants.RIGHT_REPLICA_1_MOTOR_ID, MotorType.kBrushless);
         rightReplica_2 = new CANSparkMax(Constants.RIGHT_REPLICA_2_MOTOR_ID, MotorType.kBrushless);
 
+        leftEncoder = leftPrimary.getEncoder();
+        rightEncoder = rightPrimary.getEncoder(); 
+            
         leftDrive = new MotorControllerGroup(leftPrimary, leftReplica_1, leftReplica_2);
         rightDrive = new MotorControllerGroup(rightPrimary, rightReplica_1, rightReplica_2);
         rightDrive.setInverted(true);
@@ -52,5 +56,19 @@ public class Drivetrain extends SubsystemBase {
 
     public void shiftLowGear() {
         gearShifter.set(Value.kForward);
+    }
+
+    public double squareCurve(double axis) {
+        if(axis<0) {
+            return Math.pow(axis, 2);
+        }
+        else {
+            return -Math.pow(axis, 2);
+        }
+    }
+
+    public void resetEncoder() {
+        leftEncoder.setPosition(0.0);
+        rightEncoder.setPosition(0.0);
     }
 }

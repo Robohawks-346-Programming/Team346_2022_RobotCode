@@ -24,13 +24,13 @@ public class IntakeOut extends CommandBase {
 
   // Called when the command is initially scheduled.
   @Override
-  public void initialize() {}
+  public void initialize() {
+    Robot.intake.intakeOut();
+  }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
-  public void execute() {
-    Robot.intake.intakeOut();
-  }
+  public void execute() {}
 
   // Called once the command ends or is interrupted.
   @Override
