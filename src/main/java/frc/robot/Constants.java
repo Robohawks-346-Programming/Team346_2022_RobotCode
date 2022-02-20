@@ -25,6 +25,7 @@ public final class Constants {
     //Drivetrain pnuematic channels
     public static final int HIGH_GEAR_PNUEMATIC_ID              = 0;
     public static final int LOW_GEAR_PNUEMATIC_ID               = 0;
+
     //Intake motor ID
     public static final int INTAKE_MOTOR_ID                     = 0;
 
@@ -35,10 +36,10 @@ public final class Constants {
     public static final int INTAKE_IN_PNUEMATIC_ID              = 0;
     public static final int INTAKE_OUT_PNUEMATIC_ID             = 0;
 
-    //Climber Motor ID
+    //Climber motor ID
     public static final int CLIMBER_MOTOR_ID                    = 0;
 
-    //Climber Pneumatic Channels
+    //Climber pneumatic channels
     public static final int CLIMBER_PNEUMATIC_1_IN              = 0;
     public static final int CLIMBER_PNUEMATIC_1_OUT             = 0;
     public static final int CLIMBER_PNUEMATIC_2_IN              = 0; 
@@ -48,6 +49,12 @@ public final class Constants {
     public static final double CLIMBER_MOTOR_SPEED              = 0;
 
     //Shooter Motor ID
+    public static final double climberSpeed                     =0.5;
+
+    //Max Swing Acceleration for the Climber
+    public static final double accelMax                         =0;
+
+    //Shooter motor ID
     public static final int SHOOTER_MOTOR_ID                    = 0;
 
     //Shooter motor speed
