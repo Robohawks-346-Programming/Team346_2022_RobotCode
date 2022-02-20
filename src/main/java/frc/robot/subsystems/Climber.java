@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 import edu.wpi.first.wpilibj.ADIS16448_IMU;
+import edu.wpi.first.wpilibj.DigitalInput;
 
 public class Climber extends SubsystemBase{
     // Initialize Variables
@@ -15,12 +16,15 @@ public class Climber extends SubsystemBase{
     DoubleSolenoid climberPneumatic1;
     DoubleSolenoid climberPneumatic2;
     ADIS16448_IMU gyro;
-    
+    DigitalInput topLimitSwitch, bottomLimitSwitch;
 
     public Climber() {
         climberControl = new CANSparkMax(Constants.CLIMBER_MOTOR_ID, MotorType.kBrushless);
         climberPneumatic1 = new DoubleSolenoid(PneumaticsModuleType.CTREPCM, Constants.CLIMBER_PNUEMATIC_1_OUT, Constants.CLIMBER_PNEUMATIC_1_IN);
         climberPneumatic2 = new DoubleSolenoid(PneumaticsModuleType.CTREPCM, Constants.CLIMBER_PNEUMATIC_2_OUT, Constants.CLIMBER_PNUEMATIC_2_IN);
+
+        topLimitSwitch = new DigitalInput(Constants.TOP_LIMIT_SWITCH_PORT);
+        bottomLimitSwitch = new DigitalInput(Constants.BOTTOM_LIMIT_SWITCH_PORT);
     }
 
     public void climberPneumaticOff() {
@@ -70,4 +74,5 @@ public class Climber extends SubsystemBase{
         climberStageTwo(climberSpeed);
         climberStageThree(climberSpeed, accelMax);
     }
+
 }
