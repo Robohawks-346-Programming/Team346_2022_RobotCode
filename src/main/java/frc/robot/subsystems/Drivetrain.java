@@ -1,5 +1,6 @@
 package frc.robot.subsystems;
 
+import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
@@ -10,7 +11,7 @@ import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
 import frc.robot.Constants;
 
-public class Drivetrain {
+public class Drivetrain extends SubsystemBase {
     CANSparkMax leftPrimary, leftReplica_1, leftReplica_2;
     CANSparkMax rightPrimary, rightReplica_1, rightReplica_2;
     MotorControllerGroup leftDrive, rightDrive;

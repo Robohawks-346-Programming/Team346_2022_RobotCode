@@ -28,6 +28,9 @@ public final class Constants {
     //Intake motor ID
     public static final int INTAKE_MOTOR_ID                     = 0;
 
+    //Intake motor speed
+    public static final double INTAKE_MOTOR_SPEED               = 0;
+
     //Intake pneumatic channels
     public static final int INTAKE_IN_PNUEMATIC_ID              = 0;
     public static final int INTAKE_OUT_PNUEMATIC_ID             = 0;
@@ -40,6 +43,9 @@ public final class Constants {
     public static final int CLIMBER_PNUEMATIC_1_OUT             = 0;
     public static final int CLIMBER_PNUEMATIC_2_IN              = 0; 
     public static final int CLIMBER_PNEUMATIC_2_OUT             = 0;
+
+    //Climber motor speed
+    public static final double CLIMBER_MOTOR_SPEED              = 0;
 
     //Shooter Motor ID
     public static final int SHOOTER_MOTOR_ID                    = 0;
