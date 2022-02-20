@@ -73,4 +73,7 @@ public final class Constants {
     public static final int LASER_BREAK_PORT                    = 0;
     public static final int TOP_LIMIT_SWITCH_PORT               = 0;
     public static final int BOTTOM_LIMIT_SWITCH_PORT            = 0;
+
+    //PCM id
+    public static final int PCM_ID                              = 0;
 }
