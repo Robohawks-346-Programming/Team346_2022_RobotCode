@@ -1,6 +1,7 @@
 package frc.robot.subsystems;
 
 import com.revrobotics.CANSparkMax;
+import com.revrobotics.RelativeEncoder;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.PneumaticsModuleType;
@@ -17,6 +18,8 @@ public class Climber extends SubsystemBase{
     DoubleSolenoid climberPneumatic2;
     ADIS16448_IMU gyro;
     DigitalInput topLimitSwitch, bottomLimitSwitch;
+    RelativeEncoder climberEncoder;
+    boolean climberExtended = false;
 
     public Climber() {
         climberControl = new CANSparkMax(Constants.CLIMBER_MOTOR_ID, MotorType.kBrushless);
@@ -25,6 +28,11 @@ public class Climber extends SubsystemBase{
 
         topLimitSwitch = new DigitalInput(Constants.TOP_LIMIT_SWITCH_PORT);
         bottomLimitSwitch = new DigitalInput(Constants.BOTTOM_LIMIT_SWITCH_PORT);
+
+        gyro = new ADIS16448_IMU();
+        gyro.reset();
+
+        climberEncoder = climberControl.getEncoder();
     }
 
     public void climberPneumaticOff() {
@@ -35,11 +43,13 @@ public class Climber extends SubsystemBase{
     public void climberPneumaticExtend() {
         climberPneumatic1.set(Value.kForward);
         climberPneumatic2.set(Value.kForward);
+        climberExtended = true;
     }
     
     public void climberPneumaticRetract() {
         climberPneumatic1.set(Value.kReverse);
         climberPneumatic2.set(Value.kReverse);
+        climberExtended = false;
     }
 
     public void climberArmExtend(double climberSpeed){
@@ -75,11 +85,21 @@ public class Climber extends SubsystemBase{
         climberStageThree(climberSpeed, accelMax);
     }
 
-    public boolean getTopLimitSwitch() {
-        return topLimitSwitch.get();
+    // public boolean atMaxExtension() {
+    //     return topLimitSwitch.get();
+    // }
+
+    public boolean atMaxExtension() {
+        if (!topLimitSwitch.get()) {
+            if(climberExtended) {
+                return climberEncoder.getPosition() == Constants.CLIMBER_REV_CYL_EXT;
+            }
+            return climberEncoder.getPosition() == Constants.CLIMBER_REV_CYL_RET;
+        }
+        return true;
     }
 
-    public boolean getBottomLimitSwitch() {
+    public boolean isClimberRetracted() {
         return bottomLimitSwitch.get();
     }
 }

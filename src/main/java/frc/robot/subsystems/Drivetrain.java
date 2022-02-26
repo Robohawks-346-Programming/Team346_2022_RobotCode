@@ -8,8 +8,10 @@ import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.PneumaticsModuleType;
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+import edu.wpi.first.wpilibj.interfaces.Gyro;
 import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
 import frc.robot.Constants;
+import frc.robot.Robot;
 
 public class Drivetrain extends SubsystemBase {
     CANSparkMax leftPrimary, leftReplica_1, leftReplica_2;
@@ -70,5 +72,20 @@ public class Drivetrain extends SubsystemBase {
     public void resetEncoder() {
         leftEncoder.setPosition(0.0);
         rightEncoder.setPosition(0.0);
+    }
+
+    public void resetGyro() {
+        Robot.climber.gyro.reset();
+    }
+    public void driveStraightEncoder(double power) {
+        double error = leftEncoder.getPosition()-rightEncoder.getPosition();
+        double turnPower = kP * error;
+        drive.arcadeDrive(power, turnPower);
+    }
+
+    public void driveStraightGyro(double power) {
+        double error = -Robot.climber.gyro.getAngle();
+        double turnPower = kP * error;
+        drive.arcadeDrive(power, turnPower);
     }
 }

@@ -76,4 +76,8 @@ public final class Constants {
 
     //PCM id
     public static final int PCM_ID                              = 0;
+
+    // Motor revolutions
+    public static final int CLIMBER_REV_CYL_EXT                 = 810;
+    public static final int CLIMBER_REV_CYL_RET                 = 720;
 }

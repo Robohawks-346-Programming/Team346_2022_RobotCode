@@ -10,7 +10,7 @@ import frc.robot.subsystems.Intake;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
 /** An example command that uses an example subsystem. */
-public class FullIntake extends CommandBase {
+public class DeployIntake extends CommandBase {
   @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
 
   /**
@@ -18,7 +18,7 @@ public class FullIntake extends CommandBase {
    *
    * @param subsystem The subsystem used by this command.
    */
-  public FullIntake(Intake intake) {
+  public DeployIntake(Intake intake) {
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(Robot.intake);
   }
@@ -36,12 +36,13 @@ public class FullIntake extends CommandBase {
 
   // Called once the command ends or is interrupted.
   @Override
-  public void end(boolean interrupted) {}
+  public void end(boolean interrupted) {
+    Robot.intake.intakeIn();
+  }
 
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return false;
-    //Need to say: when button released bring intake into bot
+    return Robot.intake.hasBall();
   }
 }

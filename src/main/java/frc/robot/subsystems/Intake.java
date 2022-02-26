@@ -43,8 +43,8 @@ public class Intake extends SubsystemBase{
         intakeSolenoid.set(Value.kReverse);
     }
 
-    public boolean returnBreak() {
-        return laserBreak.get();
+    public boolean hasBall() {
+        return !laserBreak.get();
     }
 
     public void pushData() {
