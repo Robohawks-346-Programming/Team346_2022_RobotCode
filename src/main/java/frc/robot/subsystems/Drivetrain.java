@@ -19,6 +19,10 @@ public class Drivetrain extends SubsystemBase {
     MotorControllerGroup leftDrive, rightDrive;
     DifferentialDrive drive;
     DoubleSolenoid gearShifter;
+
+    double revPerInch;
+    double gearRatio;
+
     public Drivetrain() {
         leftPrimary = new CANSparkMax(Constants.LEFT_PRIMARY_MOTOR_ID, MotorType.kBrushless);  
         leftReplica = new CANSparkMax(Constants.LEFT_REPLICA_MOTOR_ID, MotorType.kBrushless);
@@ -51,10 +55,14 @@ public class Drivetrain extends SubsystemBase {
 
     public void shiftHighGear() {
         gearShifter.set(Value.kReverse);
+        gearRatio = Constants.DRIVETRAIN_HIGH_GEAR_RATIO;
+        revPerInch = (Math.PI*Constants.DRIVETRAIN_WHEEL_DIAMETER)/gearRatio;
     }
 
     public void shiftLowGear() {
         gearShifter.set(Value.kForward);
+        gearRatio = Constants.DRIVETRAIN_LOW_GEAR_RATIO;
+        revPerInch = (Math.PI*Constants.DRIVETRAIN_WHEEL_DIAMETER)/gearRatio;
     }
 
     public void resetEncoder() {
@@ -75,5 +83,13 @@ public class Drivetrain extends SubsystemBase {
         double error = -Robot.climber.gyro.getAngle();
         double turnPower = Constants.DRIVE_P * error;
         drive.arcadeDrive(power, turnPower);
+    }
+
+    public double getEncoderDistanceLeft() {
+        return leftEncoder.getPosition() * revPerInch;
+    }
+
+    public double getEncoderDistanceRight() {
+        return rightEncoder.getPosition() * revPerInch;
     }
 }

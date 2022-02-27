@@ -89,4 +89,9 @@ public final class Constants {
     public static final double SHOOTER_D                        = 0;
     public static final double SHOOTER_IZ                       = 0;
     public static final double SHOOTER_FF                       = 0;
+
+    //Robot parameters
+    public static final int DRIVETRAIN_WHEEL_DIAMETER           = 5; //5 inch wheels
+    public static final double DRIVETRAIN_LOW_GEAR_RATIO        = 2.083; //24:50
+    public static final double DRIVETRAIN_HIGH_GEAR_RATIO       = 1.467; //30:44
 }
