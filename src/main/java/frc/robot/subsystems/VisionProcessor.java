@@ -34,6 +34,18 @@ public class VisionProcessor implements Subsystem{
         limeLightEntry.setNumber(setValue);
     }
 
+    public void setHubPipeline() {
+        setNTInfo("Hub", 0);
+    }
+
+    public void setBlueBallPipeline() {
+        setNTInfo("BlueBall", 1);
+    }
+
+    public void setRedBallPipeline() {
+        setNTInfo("RedBall", 2);
+    }
+
     public void toggleLEDMode() {
         led = !led;
         if (led)
@@ -68,9 +80,25 @@ public class VisionProcessor implements Subsystem{
                     rotate = Constants.VISION_TURN;
                 else
                     rotate = -Constants.VISION_TURN;
-            else
-                rotate = 0.0;
         return rotate;
+    }
+
+    public boolean isAtY() {
+        yAngle = getNTInfo("ty");
+        if (Math.abs(yAngle)<= Constants.Y_THRESHOLD)
+            isAtY = true;
+        else
+            isAtY = false;
+        return isAtY;
+    }
+
+    public double getMove() {
+        move = 0.0;
+        if (seesTarget())
+            if (!isAtY())
+                if (yAngle > Constants.Y_THRESHOLD)
+                    move = Constants.VISION_MOVE;
+        return move;
     }
    
     // pipeline control

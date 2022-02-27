@@ -13,6 +13,7 @@ import frc.robot.subsystems.Climber;
 import frc.robot.subsystems.Drivetrain;
 import frc.robot.subsystems.Intake;
 import frc.robot.subsystems.Shooter;
+import frc.robot.subsystems.VisionProcessor;
 
 /**
  * The VM is configured to automatically run this class, and to call the functions corresponding to
@@ -27,6 +28,7 @@ public class Robot extends TimedRobot {
   public static Intake intake;
   public static Shooter shooter;
   public static Compressor compressor;
+  public static VisionProcessor visionProcessor;
   private RobotContainer m_robotContainer;
 
   /**

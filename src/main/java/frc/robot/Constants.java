@@ -60,7 +60,10 @@ public final class Constants {
     public static final int VISION_LED_ON                       = 0;
     public static final int VISION_LED_OFF                      = 1;
     public static final int VISION_TURN                         = 0;
+    public static final int VISION_MOVE                         = 0;
     public static final double X_THRESHOLD                      = 0;
+    public static final double Y_THRESHOLD                      = 0;
+
 
     //Sensor ports
     public static final int LASER_BREAK_PORT                    = 0;
