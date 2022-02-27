@@ -89,6 +89,8 @@ public final class Constants {
     public static final double SHOOTER_D                        = 0;
     public static final double SHOOTER_IZ                       = 0;
     public static final double SHOOTER_FF                       = 0;
+    public static final double SHOOTER_MIN_OUTPUT               = 0;
+    public static final double SHOOTER_MAX_OUTPUT               = 0;
 
     //Robot parameters
     public static final int DRIVETRAIN_WHEEL_DIAMETER           = 5; //5 inch wheels
