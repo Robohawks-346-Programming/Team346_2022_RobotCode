@@ -14,51 +14,43 @@ package frc.robot;
  */
 public final class Constants {
 
-    // Drivetrain motor IDs
+    //Motor IDs
     public static final int LEFT_PRIMARY_MOTOR_ID               = 0;
-    public static final int LEFT_REPLICA_1_MOTOR_ID             = 0;
-    public static final int LEFT_REPLICA_2_MOTOR_ID             = 0;
+    public static final int LEFT_REPLICA_MOTOR_ID               = 0;
     public static final int RIGHT_PRIMARY_MOTOR_ID              = 0;
-    public static final int RIGHT_REPLICA_1_MOTOR_ID            = 0;
-    public static final int RIGHT_REPLICA_2_MOTOR_ID            = 0;
+    public static final int RIGHT_REPLICA_MOTOR_ID              = 0;
 
-    //Drivetrain pnuematic channels
+    public static final int INTAKE_MOTOR_ID                     = 0;
+    public static final int INSIDE_INTAKE_MOTOR_ID              = 0;
+
+    public static final int CLIMBER_MOTOR_ID                    = 0;
+
+    public static final int SHOOTER_MOTOR_ID                    = 0;
+    public static final int SHOOTER_HOOD_MOTOR_ID               = 0;
+    
+    //PCM ID
+    public static final int PCM_ID                              = 0;
+
+    //Pnuematic Channels
     public static final int HIGH_GEAR_PNUEMATIC_ID              = 0;
     public static final int LOW_GEAR_PNUEMATIC_ID               = 0;
 
-    //Intake motor ID
-    public static final int INTAKE_MOTOR_ID                     = 0;
-
-    //Intake motor speed
-    public static final double INTAKE_MOTOR_SPEED               = 0;
-
-    //Intake pneumatic channels
     public static final int INTAKE_IN_PNUEMATIC_ID              = 0;
     public static final int INTAKE_OUT_PNUEMATIC_ID             = 0;
 
-    //Climber motor ID
-    public static final int CLIMBER_MOTOR_ID                    = 0;
-
-    //Climber pneumatic channels
     public static final int CLIMBER_PNEUMATIC_1_IN              = 0;
     public static final int CLIMBER_PNUEMATIC_1_OUT             = 0;
     public static final int CLIMBER_PNUEMATIC_2_IN              = 0; 
     public static final int CLIMBER_PNEUMATIC_2_OUT             = 0;
 
-    //Climber motor speed
+    //Intake motor speed
+    public static final double INTAKE_MOTOR_SPEED               = 0;
+    public static final double INSIDE_INTAKE_MOTOR_SPEED        = 0;
+
     public static final double CLIMBER_MOTOR_SPEED              = 0;
 
-    //Shooter Motor ID
-    public static final double climberSpeed                     =0.5;
-
-    //Max Swing Acceleration for the Climber
-    public static final double accelMax                         =0;
-
-    //Shooter motor ID
-    public static final int SHOOTER_MOTOR_ID                    = 0;
-
-    //Shooter motor speed
     public static final double SHOOTER_MOTOR_SPEED              = 0;
+    public static final double SHOOTER_HOOD_MOTOR_SPEED         = 0;
 
     //Limelight variables
     public static final double TARGET_HEIGHT                    = 0;
@@ -68,16 +60,30 @@ public final class Constants {
     public static final int VISION_LED_ON                       = 0;
     public static final int VISION_LED_OFF                      = 1;
     public static final int VISION_TURN                         = 0;
+    public static final double X_THRESHOLD                      = 0;
 
     //Sensor ports
     public static final int LASER_BREAK_PORT                    = 0;
     public static final int TOP_LIMIT_SWITCH_PORT               = 0;
     public static final int BOTTOM_LIMIT_SWITCH_PORT            = 0;
 
-    //PCM id
-    public static final int PCM_ID                              = 0;
-
+    //Driver/Operator ports
+    public static final int PS4_CONTROLLER_PORT                 = 0;
+    public static final int BUTTON_BOARD_PORT                   = 1;
     // Motor revolutions
     public static final int CLIMBER_REV_CYL_EXT                 = 810;
     public static final int CLIMBER_REV_CYL_RET                 = 720;
+
+    //PIDs
+    public static final double DRIVE_P                          = 0;
+    public static final double DRIVE_I                          = 0;
+    public static final double DRIVE_D                          = 0;
+    public static final double DRIVE_IZ                         = 0;
+    public static final double DRIVE_FF                         = 0;
+
+    public static final double SHOOTER_P                        = 0;
+    public static final double SHOOTER_I                        = 0;
+    public static final double SHOOTER_D                        = 0;
+    public static final double SHOOTER_IZ                       = 0;
+    public static final double SHOOTER_FF                       = 0;
 }

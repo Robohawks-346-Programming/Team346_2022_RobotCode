@@ -5,8 +5,8 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 
 public class OI {
-    public static PS4Controller driverController = new PS4Controller(0);
-    public static Joystick operatorControl = new Joystick(1);
+    public static PS4Controller driverController = new PS4Controller(Constants.PS4_CONTROLLER_PORT);
+    public static Joystick operatorControl = new Joystick(Constants.BUTTON_BOARD_PORT);
     // need to change variable names
    
     JoystickButton BUTTON_1 = new JoystickButton(operatorControl, 1),
@@ -27,6 +27,9 @@ public class OI {
     BUTTON_16 = new JoystickButton(operatorControl, 16);
     // Need to call commands w/ buttons
 
+    public OI() {
+        
+    }
 
 
 }
