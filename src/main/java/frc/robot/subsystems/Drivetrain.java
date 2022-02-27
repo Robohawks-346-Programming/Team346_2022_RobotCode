@@ -60,15 +60,6 @@ public class Drivetrain extends SubsystemBase {
         gearShifter.set(Value.kForward);
     }
 
-    public double squareCurve(double axis) {
-        if(axis<0) {
-            return Math.pow(axis, 2);
-        }
-        else {
-            return -Math.pow(axis, 2);
-        }
-    }
-
     public void resetEncoder() {
         leftEncoder.setPosition(0.0);
         rightEncoder.setPosition(0.0);

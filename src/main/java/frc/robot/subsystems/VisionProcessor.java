@@ -36,8 +36,7 @@ public class VisionProcessor implements Subsystem{
     public void setStartPoint(){
         statPoint = getNetworkTableEntry("tx");
     }
-    public void testLimelight()
-    {
+    public void testLimelight() {
         ledOff();
         timer.delay(1);
         ledOn();
@@ -56,15 +55,23 @@ public class VisionProcessor implements Subsystem{
 
     public boolean seesTarget() {
         validTargets = getNetworkTableEntry("tv");
-        return(validTargets==1);
+        return(validTargets>=1);
     }
 
-    public double getDistanceToTarget(double limelightAngle)
+    // pipeline control
+    
+    // boolean isCentered()
+
+
+
+    // opt* double getAngleY() *** This is assuming the Y-axis is up and down
+
+    public double getDistanceToTarget()
     {
         double limelightHeight = Constants.LIMELIGHT_HEIGHT;
         double targetHeight = Constants.LIME_TARGET_HEIGHT;
-        double targetAngle = getNetworkTableEntry("ty");
-        Double offsetAngle = limelightAngle;
+        double targetAngle = getNetworkTableEntry("ty") + 5; //Needs to add 5 to correct limelight error. Found through testing
+        Double offsetAngle = 0.0; //Uses a constant if limelight is mounted on a tilt.
         SmartDashboard.putNumber("Angle Offset: ", offsetAngle);
         SmartDashboard.putNumber("Target Angle: ", targetAngle);
         return((targetHeight-limelightHeight)/(Math.tan(Math.toRadians(offsetAngle+targetAngle)))); 
