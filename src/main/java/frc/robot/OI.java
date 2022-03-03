@@ -1,8 +1,10 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.PS4Controller;
+import edu.wpi.first.wpilibj.PS4Controller.Button;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
+import frc.robot.commands.Climber.*;
 
 public class OI {
     public static PS4Controller driverController = new PS4Controller(Constants.PS4_CONTROLLER_PORT);
@@ -28,8 +30,9 @@ public class OI {
     // Need to call commands w/ buttons
 
     public OI() {
-        
+        BUTTON_2.whileHeld(new ClimberExtend());
+        BUTTON_1.whileHeld(new ClimberRetract());
+        BUTTON_3.whenPressed(new ClimberPneumaticExtend());
+        BUTTON_4.whenPressed(new ClimberPneumaticRetract());
     }
-
-
 }

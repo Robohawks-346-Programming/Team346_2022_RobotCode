@@ -6,7 +6,6 @@ package frc.robot.commands.Shooter;
 
 import frc.robot.Constants;
 import frc.robot.Robot;
-import frc.robot.subsystems.Shooter;
 
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
@@ -20,7 +19,7 @@ public class ShootBallReverse extends CommandBase {
    *
    * @param subsystem The subsystem used by this command.
    */
-  public ShootBallReverse(Shooter shooter) {
+  public ShootBallReverse() {
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(Robot.shooter);
   }

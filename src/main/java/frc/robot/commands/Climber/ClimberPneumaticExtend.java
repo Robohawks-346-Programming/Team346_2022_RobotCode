@@ -5,7 +5,6 @@
 package frc.robot.commands.Climber;
 
 import frc.robot.Robot;
-import frc.robot.subsystems.Climber;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
 /** An example command that uses an example subsystem. */
@@ -17,7 +16,7 @@ public class ClimberPneumaticExtend extends CommandBase {
    *
    * @param subsystem The subsystem used by this command.
    */
-  public ClimberPneumaticExtend(Climber climber) {
+  public ClimberPneumaticExtend() {
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(Robot.climber);
   }

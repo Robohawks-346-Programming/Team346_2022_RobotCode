@@ -6,7 +6,6 @@ package frc.robot.commands.Intake;
 
 import frc.robot.Constants;
 import frc.robot.Robot;
-import frc.robot.subsystems.Intake;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
 /** An example command that uses an example subsystem. */
@@ -18,7 +17,7 @@ public class DeployIntake extends CommandBase {
    *
    * @param subsystem The subsystem used by this command.
    */
-  public DeployIntake(Intake intake) {
+  public DeployIntake() {
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(Robot.intake);
   }

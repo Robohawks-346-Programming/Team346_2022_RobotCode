@@ -38,32 +38,37 @@ public class Climber extends SubsystemBase{
     public void climberPneumaticOff() {
         climberPneumatic1.set(Value.kOff);
         climberPneumatic2.set(Value.kOff);
+        System.out.println("Pnuematic Off");
     }
 
     public void climberPneumaticExtend() {
         climberPneumatic1.set(Value.kForward);
         climberPneumatic2.set(Value.kForward);
         climberExtended = true;
+        System.out.println("Pnuematic Extend");
     }
     
     public void climberPneumaticRetract() {
         climberPneumatic1.set(Value.kReverse);
         climberPneumatic2.set(Value.kReverse);
         climberExtended = false;
+        System.out.println("Pnuematic Retract");
     }
 
     public void climberArmExtend(double climberSpeed){
         climberControl.set(climberSpeed);
-        
+        System.out.println("Arm Extend");
     }
 
     public void climberArmRetract(double climberSpeed){
         climberControl.set(-climberSpeed);
+        System.out.println("Arm Retract");
     }
 
     public void climberStageOne(double climberSpeed){
         climberArmExtend(climberSpeed);
         climberArmRetract(climberSpeed); //need to add timing for everything
+        System.out.println("STAGE ONE ENGAGED: \n");
     }
 
     public void climberStageTwo(double climberSpeed){
@@ -71,11 +76,13 @@ public class Climber extends SubsystemBase{
         climberArmExtend(climberSpeed);
         climberArmRetract(climberSpeed);
         climberPneumaticRetract();
+        System.out.println("STAGE TWO ENGAGED: \n");
     }
 
     public void climberStageThree(double climberSpeed,double accelMax){
         if(gyro.getAccelX()<accelMax){
             climberStageTwo(climberSpeed);
+            System.out.println("STAGE Three ENGAGED: \n");
         }
     }
 
@@ -83,6 +90,7 @@ public class Climber extends SubsystemBase{
         climberStageOne(climberSpeed);
         climberStageTwo(climberSpeed);
         climberStageThree(climberSpeed, accelMax);
+        System.out.println("CLIMB SENERIO 427 ENGAGED: \n");
     }
 
     // public boolean atMaxExtension() {
