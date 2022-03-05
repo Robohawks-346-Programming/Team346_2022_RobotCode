@@ -7,6 +7,7 @@ import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
+import frc.robot.Robot;
 
 public class Shooter extends SubsystemBase{
     CANSparkMax shooter;
@@ -70,8 +71,9 @@ public class Shooter extends SubsystemBase{
         }
     }
 
-    public void shootBall(double shooterSpeed) {
+    public void shootBall(double shooterSpeed, double internalSpeed) {
         shooter.set(shooterSpeed);
+        Robot.intake.internalManipulator.set(internalSpeed);
     }
 
     public void shootBallReverse(double shooterSpeed) {
@@ -81,7 +83,7 @@ public class Shooter extends SubsystemBase{
     public double getShooterVelocity(double distance, int angle) {
          return Math.sqrt((distance * gravity)/Math.sin(angle))/(Math.PI*diameter);
     }
-    
+
     public void setShooterVelocity(double distance, int angle) {
         setPoint = getShooterVelocity(distance, angle);
         shooterPIDController.setReference(setPoint, CANSparkMax.ControlType.kVelocity);

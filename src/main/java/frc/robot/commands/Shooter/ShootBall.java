@@ -29,7 +29,7 @@ public class ShootBall extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    Robot.shooter.shootBall(Constants.SHOOTER_MOTOR_SPEED);
+    Robot.shooter.shootBall(Constants.SHOOTER_MOTOR_SPEED, Constants.INTERNAL_MANIPULATOR_MOTOR_SPEED);
   }
 
   // Called once the command ends or is interrupted.

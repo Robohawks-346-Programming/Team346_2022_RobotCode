@@ -4,6 +4,10 @@ import edu.wpi.first.wpilibj.PS4Controller;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.commands.Climber.*;
+import frc.robot.commands.Intake.*;
+import frc.robot.commands.Shooter.*;
+import frc.robot.commands.Drivetrain.*;
+import frc.robot.commands.VisionProcessor.*;
 
 public class OI {
     public static PS4Controller driverController = new PS4Controller(Constants.PS4_CONTROLLER_PORT);
@@ -29,9 +33,21 @@ public class OI {
     // Need to call commands w/ buttons
 
     public OI() {
-        BUTTON_2.whileHeld(new ClimberExtend());
-        BUTTON_1.whileHeld(new ClimberRetract());
+        BUTTON_1.whileHeld(new ClimberRetract()); // Will change to button 9
+        BUTTON_2.whileHeld(new ClimberExtend()); // Needs to change to whenPressed, once done testing
         BUTTON_3.whenPressed(new ClimberPneumaticExtend());
-        BUTTON_4.whenPressed(new ClimberPneumaticRetract());
+        BUTTON_4.whenPressed(new ClimberPneumaticRetract()); // For testing, change to button 10
+        BUTTON_5.whileHeld(new ShootBall());
+        BUTTON_6.whileHeld(new DeployIntake());
+        BUTTON_7
+        BUTTON_8
+        BUTTON_9.whenPressed(new ClimberRetract());
+        BUTTON_10.whenPressed(new ClimberPneumaticRetract());
+        BUTTON_11
+        BUTTON_12
+        BUTTON_13
+        BUTTON_14.whileHeld(new ShootBallReverse());
+        BUTTON_15.whileHeld(new IntakeBallOut());
+        BUTTON_16
     }
 }
