@@ -7,6 +7,7 @@ import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.PneumaticsModuleType;
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+import edu.wpi.first.wpilibj.interfaces.Gyro;
 import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
 import frc.robot.Constants;
 
@@ -52,4 +53,16 @@ public class Drivetrain {
     public void shiftLowGear() {
         gearShifter.set(Value.kForward);
     }
+<<<<<<< Updated upstream
 }
+=======
+
+    public void TurnToDegrees(double TurnSpeed, double TurnAngle) {
+        TurnSpeed=Constants.DRIVETRAIN_TURN_SPEED;
+        TurnAngle = Gyro.getAngle();
+    }
+
+    
+
+}
+>>>>>>> Stashed changes

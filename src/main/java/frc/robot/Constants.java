@@ -41,6 +41,17 @@ public final class Constants {
     public static final int CLIMBER_PNUEMATIC_2_IN              = 0; 
     public static final int CLIMBER_PNEUMATIC_2_OUT             = 0;
 
+<<<<<<< Updated upstream
     //Shooter Motor ID
     public static final int SHOOTER_MOTOR_ID                    = 0;
+=======
+    //Robot parameters
+    public static final int DRIVETRAIN_WHEEL_DIAMETER           = 5; //5 inch wheels
+    public static final double DRIVETRAIN_LOW_GEAR_RATIO        = 2.083; //24:50
+    public static final double DRIVETRAIN_HIGH_GEAR_RATIO       = 1.467; //30:44
+    public static final int SHOOTER_WHEEL_DIAMETER              = 4; // 4 inch wheel
+    public static final double DRIVETRAIN_MOTOR_SPEED           = 0.8;
+    public static final double DRIVETRAIN_TURN_SPEED            = 0.5;
+    public static final int DRIVETRAIN_RIGHT_ANGLE              = 90;
+>>>>>>> Stashed changes
 }
