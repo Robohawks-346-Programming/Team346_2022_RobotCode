@@ -39,15 +39,12 @@ public class OI {
         BUTTON_4.whenPressed(new ClimberPneumaticRetract()); // For testing, change to button 10
         BUTTON_5.whileHeld(new ShootBall());
         BUTTON_6.whileHeld(new DeployIntake());
-        BUTTON_7
-        BUTTON_8
+
         BUTTON_9.whenPressed(new ClimberRetract());
         BUTTON_10.whenPressed(new ClimberPneumaticRetract());
-        BUTTON_11
-        BUTTON_12
-        BUTTON_13
+
         BUTTON_14.whileHeld(new ShootBallReverse());
         BUTTON_15.whileHeld(new IntakeBallOut());
-        BUTTON_16
+
     }
 }

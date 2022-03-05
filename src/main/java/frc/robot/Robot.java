@@ -90,13 +90,16 @@ public class Robot extends TimedRobot {
     if (m_autonomousCommand != null) {
       m_autonomousCommand.cancel();
     }
+
   }
 
   /** This function is called periodically during operator control. */
   @Override
   public void teleopPeriodic() {
     CommandScheduler.getInstance().run();
+    Robot.shooter
   }
+
 
   @Override
   public void testInit() {
@@ -106,5 +109,7 @@ public class Robot extends TimedRobot {
 
   /** This function is called periodically during test mode. */
   @Override
-  public void testPeriodic() {}
+  public void testPeriodic() {
+    CommandScheduler.getInstance().run();
+  }
 }

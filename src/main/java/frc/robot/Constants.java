@@ -15,17 +15,17 @@ package frc.robot;
 public final class Constants {
 
     //Motor IDs
-    public static final int LEFT_PRIMARY_MOTOR_ID               = 0;
-    public static final int LEFT_REPLICA_MOTOR_ID               = 0;
-    public static final int RIGHT_PRIMARY_MOTOR_ID              = 0;
-    public static final int RIGHT_REPLICA_MOTOR_ID              = 0;
+    public static final int LEFT_PRIMARY_MOTOR_ID               = 12;
+    public static final int LEFT_REPLICA_MOTOR_ID               = 13;
+    public static final int RIGHT_PRIMARY_MOTOR_ID              = 10;
+    public static final int RIGHT_REPLICA_MOTOR_ID              = 17;
 
-    public static final int INTAKE_MOTOR_ID                     = 0;
-    public static final int INTERNAL_MANIPULATOR_MOTOR__ID      = 0;
+    public static final int INTAKE_MOTOR_ID                     = 30;
+    public static final int INTERNAL_MANIPULATOR_MOTOR__ID      = 31;
 
-    public static final int CLIMBER_MOTOR_ID                    = 0;
+    public static final int CLIMBER_MOTOR_ID                    = 40;
 
-    public static final int SHOOTER_MOTOR_ID                    = 0;
+    public static final int SHOOTER_MOTOR_ID                    = 20;
     public static final int SHOOTER_HOOD_MOTOR_ID               = 0;
     
     //PCM ID
@@ -33,23 +33,23 @@ public final class Constants {
 
     //Pnuematic Channels
     public static final int HIGH_GEAR_PNUEMATIC_ID              = 0;
-    public static final int LOW_GEAR_PNUEMATIC_ID               = 0;
+    public static final int LOW_GEAR_PNUEMATIC_ID               = 1;
 
-    public static final int INTAKE_IN_PNUEMATIC_ID              = 0;
-    public static final int INTAKE_OUT_PNUEMATIC_ID             = 0;
+    public static final int INTAKE_IN_PNUEMATIC_ID              = 2;
+    public static final int INTAKE_OUT_PNUEMATIC_ID             = 3;
 
-    public static final int CLIMBER_IN_PNUEMATIC_ID             = 0;
-    public static final int CLIMBER_OUT_PNUEMATIC_ID            = 0;
+    public static final int CLIMBER_IN_PNUEMATIC_ID             = 6;
+    public static final int CLIMBER_OUT_PNUEMATIC_ID            = 7;
 
 
     //Intake motor speed
-    public static final double INTAKE_MOTOR_SPEED               = 0;
-    public static final double INTERNAL_MANIPULATOR_MOTOR_SPEED = 0;
+    public static final double INTAKE_MOTOR_SPEED               = 0.25;
+    public static final double INTERNAL_MANIPULATOR_MOTOR_SPEED = 0.25;
 
-    public static final double CLIMBER_MOTOR_SPEED              = 0;
+    public static final double CLIMBER_MOTOR_SPEED              = 0.25;
 
-    public static final double SHOOTER_MOTOR_SPEED              = 0;
-    public static final double SHOOTER_HOOD_MOTOR_SPEED         = 0;
+    public static final double SHOOTER_MOTOR_SPEED              = 0.25;
+    public static final double SHOOTER_HOOD_MOTOR_SPEED         = 0.25;
 
     //Limelight variables
     public static final double TARGET_HEIGHT                    = 0;

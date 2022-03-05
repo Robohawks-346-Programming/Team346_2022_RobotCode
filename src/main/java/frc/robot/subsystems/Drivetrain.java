@@ -93,4 +93,13 @@ public class Drivetrain extends SubsystemBase {
     public double getEncoderDistanceRight() {
         return rightEncoder.getPosition() * revPerInch;
     }
+
+    public void stop() {
+        leftDrive.set(0.0);
+        rightDrive.set(0.0);
+    }
+
+    public double getAngle() {
+        return Robot.climber.gyro.getGyroAngleZ();
+    }
 }
