@@ -12,26 +12,28 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
 public class Intake extends SubsystemBase{
-    CANSparkMax intake, insideIntake;
+    CANSparkMax intake, internalManipulator;
 
     DoubleSolenoid intakeSolenoid;
     DigitalInput laserBreak;
     
     public Intake() {
         intake = new CANSparkMax(Constants.INTAKE_MOTOR_ID, MotorType.kBrushless);
-        insideIntake = new CANSparkMax(Constants.INSIDE_INTAKE_MOTOR_ID, MotorType.kBrushless);
+        internalManipulator = new CANSparkMax(Constants.INTERNAL_MANIPULATOR_MOTOR__ID, MotorType.kBrushless);
 
         intakeSolenoid = new DoubleSolenoid(PneumaticsModuleType.CTREPCM, Constants.INTAKE_OUT_PNUEMATIC_ID, Constants.INTAKE_IN_PNUEMATIC_ID);
 
         laserBreak = new DigitalInput(Constants.LASER_BREAK_PORT);
     }
 
-    public void intakeBallIn(double intakeSpeed) {
+    public void intakeBallIn(double intakeSpeed, double internalSpeed) {
         intake.set(intakeSpeed);
+        internalManipulator.set(internalSpeed);
     }
 
-    public void intakeBallOut(double intakeSpeed) {
+    public void intakeBallOut(double intakeSpeed, double internalSpeed) {
         intake.set(-intakeSpeed);
+        internalManipulator.set(-internalSpeed);
     }
 
     public void intakeOff() {

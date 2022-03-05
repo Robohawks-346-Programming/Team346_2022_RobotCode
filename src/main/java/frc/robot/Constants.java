@@ -21,7 +21,7 @@ public final class Constants {
     public static final int RIGHT_REPLICA_MOTOR_ID              = 0;
 
     public static final int INTAKE_MOTOR_ID                     = 0;
-    public static final int INSIDE_INTAKE_MOTOR_ID              = 0;
+    public static final int INTERNAL_MANIPULATOR_MOTOR__ID      = 0;
 
     public static final int CLIMBER_MOTOR_ID                    = 0;
 
@@ -38,14 +38,13 @@ public final class Constants {
     public static final int INTAKE_IN_PNUEMATIC_ID              = 0;
     public static final int INTAKE_OUT_PNUEMATIC_ID             = 0;
 
-    public static final int CLIMBER_PNEUMATIC_1_IN              = 0;
-    public static final int CLIMBER_PNUEMATIC_1_OUT             = 0;
-    public static final int CLIMBER_PNUEMATIC_2_IN              = 0; 
-    public static final int CLIMBER_PNEUMATIC_2_OUT             = 0;
+    public static final int CLIMBER_IN_PNUEMATIC_ID             = 0;
+    public static final int CLIMBER_OUT_PNUEMATIC_ID            = 0;
+
 
     //Intake motor speed
     public static final double INTAKE_MOTOR_SPEED               = 0;
-    public static final double INSIDE_INTAKE_MOTOR_SPEED        = 0;
+    public static final double INTERNAL_MANIPULATOR_MOTOR_SPEED = 0;
 
     public static final double CLIMBER_MOTOR_SPEED              = 0;
 
@@ -96,4 +95,5 @@ public final class Constants {
     public static final int DRIVETRAIN_WHEEL_DIAMETER           = 5; //5 inch wheels
     public static final double DRIVETRAIN_LOW_GEAR_RATIO        = 2.083; //24:50
     public static final double DRIVETRAIN_HIGH_GEAR_RATIO       = 1.467; //30:44
+    public static final int SHOOTER_WHEEL_DIAMETER              = 4; // 4 inch wheel
 }

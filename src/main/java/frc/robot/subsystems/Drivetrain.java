@@ -73,6 +73,7 @@ public class Drivetrain extends SubsystemBase {
     public void resetGyro() {
         Robot.climber.gyro.reset();
     }
+    
     public void driveStraightEncoder(double power) {
         double error = leftEncoder.getPosition()-rightEncoder.getPosition();
         double turnPower = Constants.DRIVE_P * error;

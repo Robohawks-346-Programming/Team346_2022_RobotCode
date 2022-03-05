@@ -9,15 +9,12 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
 public class Shooter extends SubsystemBase{
-    CANSparkMax shooter, shooterHood;
+    CANSparkMax shooter;
     SparkMaxPIDController shooterPIDController;
     RelativeEncoder shooterEncoder;
     
-    double l; //Distance, ft
-    double g = 32.2; // acceleration of gravity, ft/s^2
-    double d = 0.333; // diameter of shooter wheel : 4 in, ft
-    double v; //Calculated velocity, ft/s
-    double R; //Calculated velocity converted, rpm
+    double gravity = 32.2; // acceleration of gravity, ft/s^2
+    double diameter = Constants.SHOOTER_WHEEL_DIAMETER/12; // diameter of shooter wheel : 4 in, ft
     double angle; //Initial angle ball leaves shooter, could be constant or variable, in degrees
   
     double kP,kI,kD,kIZ,kFF,kMinOut,kMaxOut;
@@ -25,7 +22,6 @@ public class Shooter extends SubsystemBase{
     double setPoint;
     public Shooter() {
         shooter = new CANSparkMax(Constants.SHOOTER_MOTOR_ID, MotorType.kBrushless);
-        shooterHood = new CANSparkMax(Constants.SHOOTER_HOOD_MOTOR_ID, MotorType.kBrushless);
 
         kP = Constants.SHOOTER_P;
         kI = Constants.SHOOTER_I;
@@ -35,7 +31,7 @@ public class Shooter extends SubsystemBase{
         kMinOut = Constants.SHOOTER_MIN_OUTPUT;
         kMaxOut = Constants.SHOOTER_MAX_OUTPUT;
 
-        R = (Math.sqrt((l*g)/Math.sin(angle)))/(Math.PI*d);
+        
 
         shooterPIDController = shooter.getPIDController();
         shooterEncoder = shooter.getEncoder();
@@ -72,9 +68,6 @@ public class Shooter extends SubsystemBase{
           shooterPIDController.setOutputRange(MinOut, MaxOut); 
           kMinOut = MinOut; kMaxOut = MaxOut;
         }
-
-        setPoint = R;
-        shooterPIDController.setReference(setPoint, CANSparkMax.ControlType.kVelocity);
     }
 
     public void shootBall(double shooterSpeed) {
@@ -83,6 +76,15 @@ public class Shooter extends SubsystemBase{
 
     public void shootBallReverse(double shooterSpeed) {
         shooter.set(-shooterSpeed);
+    }
+
+    public double getShooterVelocity(double distance, int angle) {
+         return Math.sqrt((distance * gravity)/Math.sin(angle))/(Math.PI*diameter);
+    }
+    
+    public void setShooterVelocity(double distance, int angle) {
+        setPoint = getShooterVelocity(distance, angle);
+        shooterPIDController.setReference(setPoint, CANSparkMax.ControlType.kVelocity);
     }
 
 }
