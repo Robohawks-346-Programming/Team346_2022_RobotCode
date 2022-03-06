@@ -18,7 +18,7 @@ public final class Constants {
     public static final int LEFT_PRIMARY_MOTOR_ID               = 12;
     public static final int LEFT_REPLICA_MOTOR_ID               = 13;
     public static final int RIGHT_PRIMARY_MOTOR_ID              = 10;
-    public static final int RIGHT_REPLICA_MOTOR_ID              = 17;
+    public static final int RIGHT_REPLICA_MOTOR_ID              = 11;
 
     public static final int INTAKE_MOTOR_ID                     = 30;
     public static final int INTERNAL_MANIPULATOR_MOTOR__ID      = 31;
@@ -32,8 +32,8 @@ public final class Constants {
     public static final int PCM_ID                              = 0;
 
     //Pnuematic Channels
-    public static final int HIGH_GEAR_PNUEMATIC_ID              = 0;
-    public static final int LOW_GEAR_PNUEMATIC_ID               = 1;
+    public static final int HIGH_GEAR_PNUEMATIC_ID              = 1;
+    public static final int LOW_GEAR_PNUEMATIC_ID               = 0;
 
     public static final int INTAKE_IN_PNUEMATIC_ID              = 2;
     public static final int INTAKE_OUT_PNUEMATIC_ID             = 3;
@@ -43,13 +43,16 @@ public final class Constants {
 
 
     //Intake motor speed
-    public static final double INTAKE_MOTOR_SPEED               = 0.25;
-    public static final double INTERNAL_MANIPULATOR_MOTOR_SPEED = 0.25;
+    public static final double INTAKE_MOTOR_SPEED               = 0.35;
+    public static final double INTERNAL_MANIPULATOR_MOTOR_SPEED = -0.5;
 
-    public static final double CLIMBER_MOTOR_SPEED              = 0.25;
+    public static final double CLIMBER_MOTOR_SPEED              = 0.45;
 
-    public static final double SHOOTER_MOTOR_SPEED              = 0.25;
+    public static final double SHOOTER_MOTOR_SPEED              = -0.25;
     public static final double SHOOTER_HOOD_MOTOR_SPEED         = 0.25;
+
+    public static final double DRIVETRAIN_MAX_MOVE_SPEED        = 0.8;
+    public static final double DRIVETRAIN_MAX_TURN_SPEED        = 0.75;
 
     //Limelight variables
     public static final double TARGET_HEIGHT                    = 0;

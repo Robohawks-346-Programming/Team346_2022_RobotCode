@@ -6,8 +6,7 @@ package frc.robot.commands.Shooter;
 
 import frc.robot.Constants;
 import frc.robot.Robot;
-
-
+import frc.robot.RobotContainer;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
 /** An example command that uses an example subsystem. */
@@ -21,7 +20,7 @@ public class ShootBallReverse extends CommandBase {
    */
   public ShootBallReverse() {
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(Robot.shooter);
+    addRequirements(RobotContainer.shooter);
   }
 
   // Called when the command is initially scheduled.
@@ -31,7 +30,7 @@ public class ShootBallReverse extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    Robot.shooter.shootBallReverse(Constants.SHOOTER_MOTOR_SPEED);
+    RobotContainer.shooter.shootBallReverse(Constants.SHOOTER_MOTOR_SPEED);
   }
 
   // Called once the command ends or is interrupted.

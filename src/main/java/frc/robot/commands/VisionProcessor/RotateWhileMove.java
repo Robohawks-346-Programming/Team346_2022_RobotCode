@@ -5,6 +5,7 @@
 package frc.robot.commands.VisionProcessor;
 
 import frc.robot.Robot;
+import frc.robot.RobotContainer;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
 /** An example command that uses an example subsystem. */
@@ -17,8 +18,8 @@ public class RotateWhileMove extends CommandBase {
    */
   public RotateWhileMove() {
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(Robot.drivetrain);
-    addRequirements(Robot.visionProcessor);
+    addRequirements(RobotContainer.drivetrain);
+    addRequirements(RobotContainer.visionprocessor);
   }
 
   // Called when the command is initially scheduled.
@@ -28,8 +29,8 @@ public class RotateWhileMove extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    Robot.drivetrain.arcadeDrive(Robot.visionProcessor.getMove(), 
-                                          Robot.visionProcessor.getRotate());  
+    RobotContainer.drivetrain.arcadeDrive(RobotContainer.visionprocessor.getMove(), 
+                                          RobotContainer.visionprocessor.getRotate());  
     }
 
   // Called once the command ends or is interrupted.

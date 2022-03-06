@@ -5,6 +5,7 @@
 package frc.robot.commands.Drivetrain;
 
 import frc.robot.Robot;
+import frc.robot.RobotContainer;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
@@ -24,7 +25,7 @@ public class DriveStraightToEncoderDistanceOrTime extends CommandBase {
   double m_timeout = -1;
   public DriveStraightToEncoderDistanceOrTime(double distance, double speed, double maxTime) {
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(Robot.drivetrain);
+    addRequirements(RobotContainer.drivetrain);
     tSpeed = speed;
     targetDistance = distance;
     this.withTimeout(maxTime);
@@ -33,20 +34,20 @@ public class DriveStraightToEncoderDistanceOrTime extends CommandBase {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    Robot.drivetrain.resetEncoder();
-    Robot.drivetrain.resetGyro();
+    RobotContainer.drivetrain.resetEncoder();
+    RobotContainer.drivetrain.resetGyro();
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    Robot.drivetrain.arcadeDrive(tSpeed, rotate);
+    RobotContainer.drivetrain.arcadeDrive(tSpeed, rotate);
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    Robot.drivetrain.arcadeDrive(0.0, 0.0);
+    RobotContainer.drivetrain.arcadeDrive(0.0, 0.0);
     
   }
 
@@ -54,9 +55,9 @@ public class DriveStraightToEncoderDistanceOrTime extends CommandBase {
   @Override
   public boolean isFinished() {
     if (targetDistance >= 0) 
-      return (Robot.drivetrain.getEncoderDistanceLeft() >= targetDistance) || isTimedOut();
+      return (RobotContainer.drivetrain.getEncoderDistanceLeft() >= targetDistance) || isTimedOut();
     else
-      return (Robot.drivetrain.getEncoderDistanceLeft() <= targetDistance) || isTimedOut();
+      return (RobotContainer.drivetrain.getEncoderDistanceLeft() <= targetDistance) || isTimedOut();
   }
 
   public synchronized final double timeSinceInitialized() {

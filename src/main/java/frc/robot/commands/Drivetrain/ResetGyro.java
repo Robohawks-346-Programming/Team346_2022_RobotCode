@@ -5,6 +5,7 @@
 package frc.robot.commands.Drivetrain;
 
 import frc.robot.Robot;
+import frc.robot.RobotContainer;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
 /** An example command that uses an example subsystem. */
@@ -17,13 +18,13 @@ public class ResetGyro extends CommandBase {
    */
   public ResetGyro() {
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(Robot.drivetrain);
+    addRequirements(RobotContainer.drivetrain);
   }
 
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    Robot.drivetrain.resetGyro();
+    RobotContainer.drivetrain.resetGyro();
   }
 
   // Called every time the scheduler runs while the command is scheduled.

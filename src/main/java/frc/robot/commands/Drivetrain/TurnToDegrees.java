@@ -5,6 +5,7 @@
 package frc.robot.commands.Drivetrain;
 
 import frc.robot.Robot;
+import frc.robot.RobotContainer;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
 /** An example command that uses an example subsystem. */
@@ -20,7 +21,7 @@ public class TurnToDegrees extends CommandBase {
    */
   public TurnToDegrees(double rotationSpeed, double goalDegrees) {
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(Robot.drivetrain);
+    addRequirements(RobotContainer.drivetrain);
 
     this.rotationSpeed = rotationSpeed;
     this.goalDegrees = goalDegrees;
@@ -29,34 +30,34 @@ public class TurnToDegrees extends CommandBase {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    Robot.drivetrain.resetGyro();
+    RobotContainer.drivetrain.resetGyro();
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
     if(goalDegrees >= 0) {
-      Robot.drivetrain.arcadeDrive(0.0, rotationSpeed);
+      RobotContainer.drivetrain.arcadeDrive(0.0, rotationSpeed);
     }
     else {
-      Robot.drivetrain.arcadeDrive(0.0, -rotationSpeed);
+      RobotContainer.drivetrain.arcadeDrive(0.0, -rotationSpeed);
     }
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    Robot.drivetrain.stop();
+    RobotContainer.drivetrain.stop();
   }
 
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
     if(goalDegrees >= 0) {
-      return (Robot.drivetrain.getAngle() >= goalDegrees);
+      return (RobotContainer.drivetrain.getAngle() >= goalDegrees);
     }
     else {
-      return (Robot.drivetrain.getAngle() <= goalDegrees);
+      return (RobotContainer.drivetrain.getAngle() <= goalDegrees);
     }
   }
 }

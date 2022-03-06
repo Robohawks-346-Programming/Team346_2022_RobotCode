@@ -8,13 +8,17 @@ import frc.robot.commands.Intake.*;
 import frc.robot.commands.Shooter.*;
 import frc.robot.commands.Drivetrain.*;
 import frc.robot.commands.VisionProcessor.*;
+import frc.robot.subsystems.Climber;
+import frc.robot.subsystems.Drivetrain;
+import frc.robot.subsystems.Intake;
+import frc.robot.subsystems.Shooter;
 
 public class OI {
     public static PS4Controller driverController = new PS4Controller(Constants.PS4_CONTROLLER_PORT);
     public static Joystick operatorControl = new Joystick(Constants.BUTTON_BOARD_PORT);
     // need to change variable names
    
-    JoystickButton BUTTON_1 = new JoystickButton(operatorControl, 1),
+    public static JoystickButton BUTTON_1 = new JoystickButton(operatorControl, 1),
     BUTTON_2 = new JoystickButton(operatorControl, 2),
     BUTTON_3 = new JoystickButton(operatorControl, 3),
     BUTTON_4 = new JoystickButton(operatorControl, 4),
@@ -33,18 +37,36 @@ public class OI {
     // Need to call commands w/ buttons
 
     public OI() {
+        //BUTTON_1.whileHeld(new ClimberRetract()); // Will change to button 9
+        //BUTTON_2.whileHeld(new ClimberExtend()); // Needs to change to whenPressed, once done testing
+        BUTTON_3.whenPressed(new ClimberPneumaticExtend());
+        BUTTON_4.whenPressed(new ClimberPneumaticRetract()); // For testing, change to button 10
+        BUTTON_5.whileHeld(new ShootBall());
+        BUTTON_6.whileHeld(new DeployIntake());
+        BUTTON_7.whenPressed(new IntakeIn());
+
+        //BUTTON_9.whenPressed(new ClimberRetract());
+        BUTTON_10.whenPressed(new ClimberPneumaticRetract());
+
+        BUTTON_14.whileHeld(new ShootBallReverse());
+        BUTTON_15.whileHeld(new IntakeBallOut());
+//:)
+    }
+    
+    public static void configureButtonBindings(Drivetrain DRIVETRAIN, Shooter SHOOTER, Climber CLIMBER, Intake INTAKE) {
         BUTTON_1.whileHeld(new ClimberRetract()); // Will change to button 9
         BUTTON_2.whileHeld(new ClimberExtend()); // Needs to change to whenPressed, once done testing
         BUTTON_3.whenPressed(new ClimberPneumaticExtend());
         BUTTON_4.whenPressed(new ClimberPneumaticRetract()); // For testing, change to button 10
         BUTTON_5.whileHeld(new ShootBall());
         BUTTON_6.whileHeld(new DeployIntake());
+        BUTTON_7.whenPressed(new HighGear());
 
         BUTTON_9.whenPressed(new ClimberRetract());
         BUTTON_10.whenPressed(new ClimberPneumaticRetract());
 
         BUTTON_14.whileHeld(new ShootBallReverse());
         BUTTON_15.whileHeld(new IntakeBallOut());
-
+        BUTTON_16.whenPressed(new LowGear());
     }
 }

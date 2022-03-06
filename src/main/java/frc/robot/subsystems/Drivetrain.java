@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
 import frc.robot.Constants;
 import frc.robot.Robot;
+import frc.robot.RobotContainer;
 
 public class Drivetrain extends SubsystemBase {
     CANSparkMax leftPrimary, leftReplica ;
@@ -42,7 +43,7 @@ public class Drivetrain extends SubsystemBase {
     }
 
     public void arcadeDrive(double moveSpeed, double rotateSpeed) {
-        drive.arcadeDrive(moveSpeed, rotateSpeed);
+        drive.arcadeDrive(moveSpeed * Constants.DRIVETRAIN_MAX_MOVE_SPEED, rotateSpeed * Constants.DRIVETRAIN_MAX_TURN_SPEED);
     }
     
     public void curvatureDrive(double moveSpeed, double rotateSpeed, boolean buttonPressed) {
@@ -71,7 +72,7 @@ public class Drivetrain extends SubsystemBase {
     }
 
     public void resetGyro() {
-        Robot.climber.gyro.reset();
+        RobotContainer.climber.gyro.reset();
     }
     
     public void driveStraightEncoder(double power) {
@@ -81,7 +82,7 @@ public class Drivetrain extends SubsystemBase {
     }
 
     public void driveStraightGyro(double power) {
-        double error = -Robot.climber.gyro.getAngle();
+        double error = -RobotContainer.climber.gyro.getAngle();
         double turnPower = Constants.DRIVE_P * error;
         drive.arcadeDrive(power, turnPower);
     }
@@ -100,6 +101,6 @@ public class Drivetrain extends SubsystemBase {
     }
 
     public double getAngle() {
-        return Robot.climber.gyro.getGyroAngleZ();
+        return RobotContainer.climber.gyro.getGyroAngleZ();
     }
 }

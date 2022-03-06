@@ -1,7 +1,10 @@
 package frc.robot.subsystems;
 
+import java.util.TooManyListenersException;
+
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.RelativeEncoder;
+import com.revrobotics.SparkMaxLimitSwitch;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.PneumaticsModuleType;
@@ -16,7 +19,7 @@ public class Climber extends SubsystemBase{
     CANSparkMax climberControl;
     DoubleSolenoid climberSolenoid;
     ADIS16448_IMU gyro;
-    DigitalInput topLimitSwitch, bottomLimitSwitch;
+    SparkMaxLimitSwitch topLimitSwitch, bottomLimitSwitch;
     RelativeEncoder climberEncoder;
     boolean climberExtended = false;
 
@@ -24,8 +27,11 @@ public class Climber extends SubsystemBase{
         climberControl = new CANSparkMax(Constants.CLIMBER_MOTOR_ID, MotorType.kBrushless);
         climberSolenoid = new DoubleSolenoid(PneumaticsModuleType.CTREPCM, Constants.CLIMBER_OUT_PNUEMATIC_ID, Constants.CLIMBER_IN_PNUEMATIC_ID);
 
-        topLimitSwitch = new DigitalInput(Constants.TOP_LIMIT_SWITCH_PORT);
-        bottomLimitSwitch = new DigitalInput(Constants.BOTTOM_LIMIT_SWITCH_PORT);
+        topLimitSwitch = climberControl.getReverseLimitSwitch(SparkMaxLimitSwitch.Type.kNormallyClosed);
+        bottomLimitSwitch = climberControl.getForwardLimitSwitch(SparkMaxLimitSwitch.Type.kNormallyClosed);
+
+        topLimitSwitch.enableLimitSwitch(false);
+        bottomLimitSwitch.enableLimitSwitch(false);
 
         gyro = new ADIS16448_IMU();
         gyro.reset();
@@ -35,29 +41,24 @@ public class Climber extends SubsystemBase{
 
     public void climberPneumaticOff() {
         climberSolenoid.set(Value.kOff);
-        System.out.println("Pnuematic Off");
     }
 
     public void climberPneumaticExtend() {
         climberSolenoid.set(Value.kForward);
         climberExtended = true;
-        System.out.println("Pnuematic Extend");
     }
     
     public void climberPneumaticRetract() {
         climberSolenoid.set(Value.kReverse);
         climberExtended = false;
-        System.out.println("Pnuematic Retract");
     }
 
     public void climberArmExtend(double climberSpeed){
         climberControl.set(climberSpeed);
-        System.out.println("Arm Extend");
     }
 
     public void climberArmRetract(double climberSpeed){
         climberControl.set(-climberSpeed);
-        System.out.println("Arm Retract");
     }
 
     public void climberStageOne(double climberSpeed){
@@ -93,8 +94,9 @@ public class Climber extends SubsystemBase{
     // }
 
     public boolean atMaxExtension() {
-        if (!topLimitSwitch.get()) {
+        if (!topLimitSwitch.isPressed()) {
             if(climberExtended) {
+                System.out.println("Fluffy pants");
                 return climberEncoder.getPosition() == Constants.CLIMBER_REV_CYL_EXT;
             }
             return climberEncoder.getPosition() == Constants.CLIMBER_REV_CYL_RET;
@@ -103,6 +105,10 @@ public class Climber extends SubsystemBase{
     }
 
     public boolean isClimberRetracted() {
-        return bottomLimitSwitch.get();
+        return bottomLimitSwitch.isPressed();
+    }
+
+    public void getPressed() {
+        System.out.println(bottomLimitSwitch.isPressed());
     }
 }

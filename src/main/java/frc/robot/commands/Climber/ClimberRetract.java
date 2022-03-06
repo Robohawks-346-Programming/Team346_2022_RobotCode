@@ -5,7 +5,9 @@
 package frc.robot.commands.Climber;
 
 import frc.robot.Constants;
+import frc.robot.OI;
 import frc.robot.Robot;
+import frc.robot.RobotContainer;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
 /** An example command that uses an example subsystem. */
@@ -19,7 +21,7 @@ public class ClimberRetract extends CommandBase {
    */
   public ClimberRetract() {
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(Robot.climber);
+    addRequirements(RobotContainer.climber);
   }
 
   // Called when the command is initially scheduled.
@@ -29,16 +31,21 @@ public class ClimberRetract extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    Robot.climber.climberArmRetract(Constants.CLIMBER_MOTOR_SPEED);
+    RobotContainer.climber.climberArmRetract(Constants.CLIMBER_MOTOR_SPEED);
   }
 
   // Called once the command ends or is interrupted.
   @Override
-  public void end(boolean interrupted) {}
+  public void end(boolean interrupted) {
+    // if(!OI.BUTTON_1.get()) {
+    //   RobotContainer.climber.climberArmRetract(0.0);
+    //   System.out.println("cancel");
+    // }
+  }
 
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return Robot.climber.isClimberRetracted();
+    return RobotContainer.climber.isClimberRetracted();
   }
 }

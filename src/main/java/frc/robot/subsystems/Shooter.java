@@ -6,8 +6,11 @@ import com.revrobotics.SparkMaxPIDController;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import edu.wpi.first.wpilibj2.command.WaitCommand;
 import frc.robot.Constants;
 import frc.robot.Robot;
+import frc.robot.RobotContainer;
+import edu.wpi.first.wpilibj2.command.*;
 
 public class Shooter extends SubsystemBase{
     CANSparkMax shooter;
@@ -73,7 +76,8 @@ public class Shooter extends SubsystemBase{
 
     public void shootBall(double shooterSpeed, double internalSpeed) {
         shooter.set(shooterSpeed);
-        Robot.intake.internalManipulator.set(internalSpeed);
+        new WaitCommand(1.0);
+        RobotContainer.intake.internalManipulator.set(internalSpeed);
     }
 
     public void shootBallReverse(double shooterSpeed) {

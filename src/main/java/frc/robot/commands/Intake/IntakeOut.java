@@ -5,6 +5,7 @@
 package frc.robot.commands.Intake;
 
 import frc.robot.Robot;
+import frc.robot.RobotContainer;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
 /** An example command that uses an example subsystem. */
@@ -18,13 +19,13 @@ public class IntakeOut extends CommandBase {
    */
   public IntakeOut() {
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(Robot.intake);
+    addRequirements(RobotContainer.intake);
   }
 
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    Robot.intake.intakeOut();
+    RobotContainer.intake.intakeOut();
   }
 
   // Called every time the scheduler runs while the command is scheduled.

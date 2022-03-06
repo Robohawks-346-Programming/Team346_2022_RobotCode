@@ -23,12 +23,6 @@ import frc.robot.subsystems.VisionProcessor;
  */
 public class Robot extends TimedRobot {
   private Command m_autonomousCommand;
-  public static Climber climber;
-  public static Drivetrain drivetrain;
-  public static Intake intake;
-  public static Shooter shooter;
-  public static Compressor compressor;
-  public static VisionProcessor visionProcessor;
   private RobotContainer m_robotContainer;
 
   /**
@@ -40,7 +34,6 @@ public class Robot extends TimedRobot {
     // Instantiate our RobotContainer.  This will perform all our button bindings, and put our
     // autonomous chooser on the dashboard.
     m_robotContainer = new RobotContainer();
-    compressor = new Compressor(Constants.PCM_ID, PneumaticsModuleType.CTREPCM);
   }
 
   /**
@@ -90,6 +83,7 @@ public class Robot extends TimedRobot {
     if (m_autonomousCommand != null) {
       m_autonomousCommand.cancel();
     }
+    CommandScheduler.getInstance().cancelAll();
 
   }
 
@@ -97,7 +91,7 @@ public class Robot extends TimedRobot {
   @Override
   public void teleopPeriodic() {
     CommandScheduler.getInstance().run();
-    Robot.shooter
+    //RobotContainer.climber.getPressed();
   }
 
 

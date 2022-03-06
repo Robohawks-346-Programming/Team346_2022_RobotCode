@@ -5,6 +5,7 @@
 package frc.robot.commands.Climber;
 
 import frc.robot.Robot;
+import frc.robot.RobotContainer;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
 /** An example command that uses an example subsystem. */
@@ -18,13 +19,13 @@ public class ClimberPneumaticExtend extends CommandBase {
    */
   public ClimberPneumaticExtend() {
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(Robot.climber);
+    addRequirements(RobotContainer.climber);
   }
 
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    Robot.climber.climberPneumaticExtend();
+    RobotContainer.climber.climberPneumaticExtend();
   }
 
   // Called every time the scheduler runs while the command is scheduled.
