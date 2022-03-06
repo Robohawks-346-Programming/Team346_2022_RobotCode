@@ -10,7 +10,7 @@ import frc.robot.RobotContainer;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
 /** An example command that uses an example subsystem. */
-public class ShootBall extends CommandBase {
+public class ShootBallTarmac extends CommandBase {
   @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
 
   /**
@@ -18,7 +18,7 @@ public class ShootBall extends CommandBase {
    *
    * @param subsystem The subsystem used by this command.
    */
-  public ShootBall() {
+  public ShootBallTarmac() {
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(RobotContainer.shooter);
   }
@@ -30,7 +30,7 @@ public class ShootBall extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    RobotContainer.shooter.shootBall(Constants.SHOOTER_MOTOR_SPEED, Constants.INTERNAL_MANIPULATOR_MOTOR_SPEED);
+    RobotContainer.shooter.shootBall(Constants.SHOOTER_TARMAC_MOTOR_SPEED, Constants.INTERNAL_MANIPULATOR_MOTOR_SPEED);
   }
 
   // Called once the command ends or is interrupted.

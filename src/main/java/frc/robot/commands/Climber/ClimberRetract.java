@@ -37,10 +37,8 @@ public class ClimberRetract extends CommandBase {
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    // if(!OI.BUTTON_1.get()) {
-    //   RobotContainer.climber.climberArmRetract(0.0);
-    //   System.out.println("cancel");
-    // }
+    RobotContainer.climber.climberArmRetract(0.0);
+    RobotContainer.climber.climberArmRetract(0.0);
   }
 
   // Returns true when the command should end.

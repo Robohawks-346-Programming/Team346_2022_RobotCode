@@ -2,7 +2,7 @@
 // Open Source Software; you can modify and/or share it under the terms of
 // the WPILib BSD license file in the root directory of this project.
 
-package frc.robot.commands.Climber;
+package frc.robot.commands.Shooter;
 
 import frc.robot.Constants;
 import frc.robot.Robot;
@@ -10,7 +10,7 @@ import frc.robot.RobotContainer;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
 /** An example command that uses an example subsystem. */
-public class ClimberExtend extends CommandBase {
+public class ShootBallPad extends CommandBase {
   @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
 
   /**
@@ -18,9 +18,9 @@ public class ClimberExtend extends CommandBase {
    *
    * @param subsystem The subsystem used by this command.
    */
-  public ClimberExtend() {
+  public ShootBallPad() {
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(RobotContainer.climber);
+    addRequirements(RobotContainer.shooter);
   }
 
   // Called when the command is initially scheduled.
@@ -30,19 +30,18 @@ public class ClimberExtend extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-      RobotContainer.climber.climberArmExtend(Constants.CLIMBER_MOTOR_SPEED);
+    RobotContainer.shooter.shootBall(Constants.SHOOTER_PAD_MOTOR_SPEED, Constants.INTERNAL_MANIPULATOR_MOTOR_SPEED);
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    RobotContainer.climber.climberArmExtend(0.0);
-    //System.out.println("cancel");
+    RobotContainer.shooter.shootBall(0.0, 0.0);
   }
 
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return RobotContainer.climber.atMaxExtension();
+    return false;
   }
 }
