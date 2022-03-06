@@ -38,19 +38,19 @@ public final class Constants {
     public static final int INTAKE_IN_PNUEMATIC_ID              = 1;
     public static final int INTAKE_OUT_PNUEMATIC_ID             = 0;
 
-    public static final int CLIMBER_IN_PNUEMATIC_ID             = 5;
-    public static final int CLIMBER_OUT_PNUEMATIC_ID            = 4;
+    public static final int CLIMBER_IN_PNUEMATIC_ID             = 4;
+    public static final int CLIMBER_OUT_PNUEMATIC_ID            = 5;
 
     // public static final int BALL_STOPPER_IN_PNUEMATIC_ID        = 4;
     // public static final int BALL_STOPPER_OUT_PNUEMATIC_ID       = 5;
 
     //Intake motor speed
     public static final double INTAKE_MOTOR_SPEED               = 0.35;
-    public static final double INTERNAL_MANIPULATOR_MOTOR_SPEED = -0.5;
+    public static final double INTERNAL_MANIPULATOR_MOTOR_SPEED = -0.35;
 
     public static final double CLIMBER_MOTOR_SPEED              = 0.65;
 
-    public static final double SHOOTER_TARMAC_MOTOR_SPEED       = -0.75;
+    public static final double SHOOTER_TARMAC_MOTOR_SPEED       = -0.7;
     public static final double SHOOTER_MOTOR_SPEED              = -0.25;
 
     public static final double SHOOTER_PAD_MOTOR_SPEED          = -0.85;

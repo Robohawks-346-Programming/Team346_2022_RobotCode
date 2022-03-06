@@ -8,6 +8,8 @@ import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.commands.ExampleCommand;
+import frc.robot.commands.Auto.MoveOnly;
+import frc.robot.commands.Climber.ClimberPneumaticExtend;
 import frc.robot.commands.Drivetrain.JoystickDrive;
 import frc.robot.subsystems.Climber;
 import frc.robot.subsystems.Drivetrain;
@@ -31,7 +33,6 @@ public class RobotContainer {
   public static final Climber climber = new Climber();
   public static final Intake intake = new Intake();
   public static final VisionProcessor visionprocessor = new VisionProcessor();
-
   private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */

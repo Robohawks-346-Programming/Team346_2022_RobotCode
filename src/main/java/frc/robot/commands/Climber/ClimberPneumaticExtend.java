@@ -4,7 +4,7 @@
 
 package frc.robot.commands.Climber;
 
-import frc.robot.Robot;
+import frc.robot.Constants;
 import frc.robot.RobotContainer;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
@@ -26,20 +26,18 @@ public class ClimberPneumaticExtend extends CommandBase {
   @Override
   public void initialize() {
     RobotContainer.climber.climberPneumaticExtend();
-    System.out.println("Extend");
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
     RobotContainer.climber.climberPneumaticExtend();
-    System.out.println("Extend");
   }
 
   // Called once the command ends or is interrupted.
   @Override
-  public void end(boolean interrupted) {}
-
+  public void end(boolean interrupted) {
+  }
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {

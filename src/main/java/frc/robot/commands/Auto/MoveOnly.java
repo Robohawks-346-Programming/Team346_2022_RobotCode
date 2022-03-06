@@ -23,7 +23,7 @@ public class MoveOnly extends SequentialCommandGroup {
    */
   public MoveOnly() {
     // Use addRequirements() here to declare subsystem dependencies.
-    addCommands(new DriveStraightToEncoderDistanceOrTime(60.0, 0.5, 10.0));
+    addCommands(new DriveStraightToEncoderDistanceOrTime(10.0, 0.5, 10.0));
   }
 
 
