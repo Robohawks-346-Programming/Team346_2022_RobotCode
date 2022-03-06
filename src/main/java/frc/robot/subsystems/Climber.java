@@ -21,7 +21,7 @@ public class Climber extends SubsystemBase{
     ADIS16448_IMU gyro;
     SparkMaxLimitSwitch topLimitSwitch, bottomLimitSwitch;
     RelativeEncoder climberEncoder;
-    boolean climberArmExtended = false;
+    boolean climberExtended = false;
 
     public Climber() {
         climberControl = new CANSparkMax(Constants.CLIMBER_MOTOR_ID, MotorType.kBrushless);
@@ -39,18 +39,14 @@ public class Climber extends SubsystemBase{
         climberEncoder = climberControl.getEncoder();
     }
 
-    public void climberPneumaticOff() {
-        climberSolenoid.set(Value.kOff);
-    }
-
     public void climberPneumaticExtend() {
         climberSolenoid.set(Value.kForward);
-        climberArmExtended = true;
+        climberExtended = true;
     }
     
     public void climberPneumaticRetract() {
         climberSolenoid.set(Value.kReverse);
-        climberArmExtended = false;
+        climberExtended = false;
     }
 
     public void climberArmExtend(double climberSpeed){
@@ -95,7 +91,7 @@ public class Climber extends SubsystemBase{
 
     public boolean atMaxExtension() {
         if (!topLimitSwitch.isPressed()) {
-            if(climberArmExtended) {
+            if(climberExtended) {
                 System.out.println("Fluffy pants");
                 return climberEncoder.getPosition() == Constants.CLIMBER_REV_CYL_EXT;
             }

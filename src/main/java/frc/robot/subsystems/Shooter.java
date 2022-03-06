@@ -74,10 +74,8 @@ public class Shooter extends SubsystemBase{
         }
     }
 
-    public void shootBall(double shooterSpeed, double internalSpeed) {
+    public void shootBall(double shooterSpeed) {
         shooter.set(shooterSpeed);
-        new WaitCommand(1.0);
-        RobotContainer.intake.internalManipulator.set(internalSpeed);
     }
 
     public void shootBallReverse(double shooterSpeed) {

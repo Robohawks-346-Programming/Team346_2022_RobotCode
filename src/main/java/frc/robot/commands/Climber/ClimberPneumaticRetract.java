@@ -26,11 +26,15 @@ public class ClimberPneumaticRetract extends CommandBase {
   @Override
   public void initialize() {
     RobotContainer.climber.climberPneumaticRetract();
+    System.out.println("retract");
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
-  public void execute() {}
+  public void execute() {
+    RobotContainer.climber.climberPneumaticRetract();
+    System.out.println("retract");
+  }
 
   // Called once the command ends or is interrupted.
   @Override

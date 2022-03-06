@@ -25,7 +25,7 @@ public class BallStopIn extends CommandBase {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    RobotContainer.intake.ballStopIn();
+    //RobotContainer.intake.ballStopIn();
   }
 
   // Called every time the scheduler runs while the command is scheduled.

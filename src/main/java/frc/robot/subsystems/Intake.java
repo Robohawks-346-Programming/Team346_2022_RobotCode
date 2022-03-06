@@ -22,7 +22,7 @@ public class Intake extends SubsystemBase{
         internalManipulator = new CANSparkMax(Constants.INTERNAL_MANIPULATOR_MOTOR__ID, MotorType.kBrushless);
 
         intakeSolenoid = new DoubleSolenoid(PneumaticsModuleType.CTREPCM, Constants.INTAKE_OUT_PNUEMATIC_ID, Constants.INTAKE_IN_PNUEMATIC_ID);
-        ballStopper = new DoubleSolenoid(PneumaticsModuleType.CTREPCM, Constants.BALL_STOPPER_OUT_PNUEMATIC_ID, Constants.BALL_STOPPER_IN_PNUEMATIC_ID);
+        //ballStopper = new DoubleSolenoid(PneumaticsModuleType.CTREPCM, Constants.BALL_STOPPER_OUT_PNUEMATIC_ID, Constants.BALL_STOPPER_IN_PNUEMATIC_ID);
 
         laserBreak = new DigitalInput(Constants.LASER_BREAK_PORT);
     }
@@ -56,16 +56,20 @@ public class Intake extends SubsystemBase{
         SmartDashboard.putBoolean("Laser break unobstructed: ", laserBreak.get());
     }
 
-    public void ballStopOff() {
-        ballStopper.set(Value.kOff);
+    public void InternalManipulatorIn(double motorSpeed) {
+        internalManipulator.set(motorSpeed);
     }
 
-    public void ballStopOut() {
-        ballStopper.set(Value.kForward);
-    }
+    // public void ballStopOff() {
+    //     ballStopper.set(Value.kOff);
+    // }
 
-    public void ballStopIn() {
-        ballStopper.set(Value.kReverse);
-    }
+    // public void ballStopOut() {
+    //     ballStopper.set(Value.kForward);
+    // }
+
+    // public void ballStopIn() {
+    //     ballStopper.set(Value.kReverse);
+    // }
 }
 
