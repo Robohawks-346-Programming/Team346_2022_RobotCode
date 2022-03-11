@@ -10,7 +10,6 @@ import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
 import frc.robot.Constants;
-import frc.robot.Robot;
 import frc.robot.RobotContainer;
 
 public class Drivetrain extends SubsystemBase {
@@ -48,10 +47,6 @@ public class Drivetrain extends SubsystemBase {
     
     public void curvatureDrive(double moveSpeed, double rotateSpeed, boolean buttonPressed) {
         drive.curvatureDrive(moveSpeed, rotateSpeed, buttonPressed);
-    }
-
-    public void gearShifterOff() {
-        gearShifter.set(Value.kOff);
     }
 
     public void shiftHighGear() {

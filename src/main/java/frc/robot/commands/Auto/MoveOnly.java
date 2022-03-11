@@ -4,17 +4,13 @@
 
 package frc.robot.commands.Auto;
 
-import frc.robot.Robot;
 import frc.robot.commands.Drivetrain.DriveStraightToEncoderDistanceOrTime;
-
-import javax.swing.GroupLayout.SequentialGroup;
-
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandGroupBase;
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 
 /** An example command that uses an example subsystem. */
-public class MoveOnly extends SequentialCommandGroup {
+public class MoveOnly extends CommandGroupBase {
   @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
   /**
    * Creates a new ExampleCommand.
@@ -23,7 +19,13 @@ public class MoveOnly extends SequentialCommandGroup {
    */
   public MoveOnly() {
     // Use addRequirements() here to declare subsystem dependencies.
-    addCommands(new DriveStraightToEncoderDistanceOrTime(10.0, 0.5, 10.0));
+  }
+
+  @Override
+  public void addCommands(Command... commands) {
+    // TODO Auto-generated method stub
+    new DriveStraightToEncoderDistanceOrTime(100.0, 0.5, 10.0);
+    
   }
 
 

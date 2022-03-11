@@ -1,3 +1,4 @@
+
 package frc.robot;
 
 import edu.wpi.first.wpilibj.PS4Controller;
@@ -43,7 +44,7 @@ public class OI {
         //BUTTON_4.whenPressed(new ClimberPneumaticRetract()); // For testing, change to button 10
         BUTTON_5.whileHeld(new ShootBallTarmac());
         BUTTON_6.whileHeld(new DeployIntake());
-        //BUTTON_7.whenPressed(new HighGear());
+        BUTTON_7.whenPressed(new HighGear());
 
         BUTTON_9.whileHeld(new ClimberRetract());
         BUTTON_10.whenPressed(new ClimberPneumaticRetract());
@@ -52,7 +53,7 @@ public class OI {
 
         BUTTON_14.whileHeld(new ShootBallPad());
         BUTTON_15.whileHeld(new InternalManipulatorIn());
-        //BUTTON_16.whenPressed(new LowGear());
+        BUTTON_16.whenPressed(new LowGear());
 //:)
     }
     
@@ -72,6 +73,6 @@ public class OI {
 
         BUTTON_14.whileHeld(new ShootBallPad());
         BUTTON_15.whileHeld(new InternalManipulatorIn());
-        //BUTTON_16.whenPressed(new LowGear());
+        //BUTTON_16.whenPressed(new Lo
     }
 }

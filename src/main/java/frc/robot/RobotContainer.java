@@ -4,12 +4,9 @@
 
 package frc.robot;
 
-import edu.wpi.first.wpilibj.GenericHID;
-import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.XboxController;
+
 import frc.robot.commands.ExampleCommand;
 import frc.robot.commands.Auto.MoveOnly;
-import frc.robot.commands.Climber.ClimberPneumaticExtend;
 import frc.robot.commands.Drivetrain.JoystickDrive;
 import frc.robot.subsystems.Climber;
 import frc.robot.subsystems.Drivetrain;
@@ -33,14 +30,15 @@ public class RobotContainer {
   public static final Climber climber = new Climber();
   public static final Intake intake = new Intake();
   public static final VisionProcessor visionprocessor = new VisionProcessor();
+  public static final MoveOnly auto = new MoveOnly();
   private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
+  
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
     // Configure the button bindings
     drivetrain.setDefaultCommand(new JoystickDrive());
     OI.configureButtonBindings(drivetrain,shooter,climber,intake);
-    
   }
 
 
@@ -60,6 +58,6 @@ public class RobotContainer {
    */
   public Command getAutonomousCommand() {
     // An ExampleCommand will run in autonomous
-    return m_autoCommand;
+    return auto;
   }
 }

@@ -4,7 +4,6 @@
 
 package frc.robot.commands.Drivetrain;
 
-import frc.robot.Robot;
 import frc.robot.RobotContainer;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
@@ -30,7 +29,9 @@ public class LowGear extends CommandBase {
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
-  public void execute() {}
+  public void execute() {
+    RobotContainer.drivetrain.shiftLowGear();
+  }
 
   // Called once the command ends or is interrupted.
   @Override
