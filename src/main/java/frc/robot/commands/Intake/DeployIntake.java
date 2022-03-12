@@ -30,14 +30,14 @@ public class DeployIntake extends CommandBase {
   @Override
   public void execute() {
     RobotContainer.intake.intakeOut();
-    RobotContainer.intake.intakeBallIn(Constants.INTAKE_MOTOR_SPEED, Constants.INTERNAL_MANIPULATOR_MOTOR_SPEED);
+    RobotContainer.intake.intakeBallIn(Constants.INTAKE_MOTOR_SPEED);
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
     RobotContainer.intake.intakeIn();
-    RobotContainer.intake.intakeBallIn(0.0, 0.0);
+    RobotContainer.intake.intakeBallIn(0.0);
   }
 
   // Returns true when the command should end.

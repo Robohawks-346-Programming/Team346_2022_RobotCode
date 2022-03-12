@@ -27,14 +27,12 @@ public class Intake extends SubsystemBase{
         laserBreak = new DigitalInput(Constants.LASER_BREAK_PORT);
     }
 
-    public void intakeBallIn(double intakeSpeed, double internalSpeed) {
+    public void intakeBallIn(double intakeSpeed) {
         intake.set(intakeSpeed);
-        internalManipulator.set(internalSpeed);
     }
 
-    public void intakeBallOut(double intakeSpeed, double internalSpeed) {
+    public void intakeBallOut(double intakeSpeed) {
         intake.set(-intakeSpeed);
-        internalManipulator.set(-internalSpeed);
     }
 
     public void intakeOff() {

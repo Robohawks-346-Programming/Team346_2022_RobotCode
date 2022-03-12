@@ -8,6 +8,7 @@ import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.PneumaticsModuleType;
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 import edu.wpi.first.wpilibj.ADIS16448_IMU;
@@ -25,11 +26,11 @@ public class Climber extends SubsystemBase{
         climberControl = new CANSparkMax(Constants.CLIMBER_MOTOR_ID, MotorType.kBrushless);
         climberSolenoid = new DoubleSolenoid(PneumaticsModuleType.CTREPCM, Constants.CLIMBER_OUT_PNUEMATIC_ID, Constants.CLIMBER_IN_PNUEMATIC_ID);
 
-        topLimitSwitch = climberControl.getReverseLimitSwitch(SparkMaxLimitSwitch.Type.kNormallyClosed);
-        bottomLimitSwitch = climberControl.getForwardLimitSwitch(SparkMaxLimitSwitch.Type.kNormallyClosed);
+        //topLimitSwitch = climberControl.getReverseLimitSwitch(SparkMaxLimitSwitch.Type.kNormallyClosed);
+        //bottomLimitSwitch = climberControl.getForwardLimitSwitch(SparkMaxLimitSwitch.Type.kNormallyClosed);
 
-        topLimitSwitch.enableLimitSwitch(true);
-        bottomLimitSwitch.enableLimitSwitch(true);
+        //topLimitSwitch.enableLimitSwitch(true);
+        //bottomLimitSwitch.enableLimitSwitch(true);
 
         gyro = new ADIS16448_IMU();
         gyro.reset();
@@ -48,28 +49,30 @@ public class Climber extends SubsystemBase{
     }
 
     public void climberArmExtend(double climberSpeed){
-        double output = climberSpeed;
-        if(getBottomLimitPosition()) {
-            output = Math.min(-output, 0);
-        }
-        else if(getForwardLimitPosition()) {
-            output = Math.max(output, 0);
-        }
-        climberControl.set(output);
+        //double output = climberSpeed;
+        //if(getReverseLimitPosition()) {
+        //    climberControl.set(-output);
+        //}
+        //else if(getForwardLimitPosition()) {
+        //    climberControl.set(output);
+        //}
+        climberControl.set(climberSpeed);
     }
 
     // public void climberArmRetract(double climberSpeed){
     //     climberControl.set(-climberSpeed);
-    // }
+    // }\[]
+
     public void climberArmRetract(double climberSpeed){
-        double output = climberSpeed;
-        if(getBottomLimitPosition()) {
-            output = Math.min(-output, 0);
-        }
-        else if(getForwardLimitPosition()) {
-            output = Math.max(output, 0);
-        }
-        climberControl.set(-output);
+        //double output = climberSpeed;
+        //SmartDashboard.putNumber("Motor rev", climberEncoder.getPosition());
+        //if(getReverseLimitPosition()) {
+        //    climberControl.set(-output);
+        //}
+        //else if(getForwardLimitPosition()) {
+        //    climberControl.set(output);
+        //}
+        climberControl.set(-climberSpeed);
     }
     
     // public boolean atMaxExtension() {
@@ -77,24 +80,34 @@ public class Climber extends SubsystemBase{
     // }
 
     public boolean atMaxExtension() {
-        if (!topLimitSwitch.isPressed()) {
+        //if (!bottomLimitSwitch.isPressed()) {
             if(climberExtended) {
-                return climberEncoder.getPosition() == Constants.CLIMBER_REV_CYL_EXT;
+                return climberEncoder.getPosition() >= Constants.CLIMBER_REV_CYL_EXT;
             }
-            return climberEncoder.getPosition() == Constants.CLIMBER_REV_CYL_RET;
+            else {
+                return climberEncoder.getPosition() >= Constants.CLIMBER_REV_CYL_RET;
+            }
         }
-        return true;
+        //return true;
+    //}
+
+    // public boolean isClimberRetracted() {
+    //     return topLimitSwitch.isPressed();
+    // }
+
+    // public boolean getReverseLimitPosition() {
+    //     return topLimitSwitch.isPressed();
+    // }
+
+    // public boolean getForwardLimitPosition() {
+    //     return bottomLimitSwitch.isPressed();
+    // }
+
+    public double getMotorRevolutions() {
+        return climberEncoder.getPosition();
     }
 
-    public boolean isClimberRetracted() {
-        return bottomLimitSwitch.isPressed();
-    }
-
-    public boolean getBottomLimitPosition() {
-        return bottomLimitSwitch.isPressed();
-    }
-
-    public boolean getForwardLimitPosition() {
-        return topLimitSwitch.isPressed();
+    public void resetEncoder() {
+        climberEncoder.setPosition(0.0);
     }
 }

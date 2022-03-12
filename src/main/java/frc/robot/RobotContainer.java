@@ -7,6 +7,7 @@ package frc.robot;
 
 import frc.robot.commands.ExampleCommand;
 import frc.robot.commands.Auto.MoveOnly;
+import frc.robot.commands.Climber.ResetEncoder;
 import frc.robot.commands.Drivetrain.JoystickDrive;
 import frc.robot.subsystems.Climber;
 import frc.robot.subsystems.Drivetrain;

@@ -6,6 +6,7 @@ package frc.robot.commands.Climber;
 
 import frc.robot.Constants;
 import frc.robot.RobotContainer;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
 /** An example command that uses an example subsystem. */
@@ -24,12 +25,16 @@ public class ClimberExtend extends CommandBase {
 
   // Called when the command is initially scheduled.
   @Override
-  public void initialize() {}
+  public void initialize() {
+    RobotContainer.climber.resetEncoder();
+  }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
       RobotContainer.climber.climberArmExtend(Constants.CLIMBER_MOTOR_SPEED);
+      SmartDashboard.putNumber("Motor rev", RobotContainer.climber.getMotorRevolutions());
+
   }
 
   // Called once the command ends or is interrupted.

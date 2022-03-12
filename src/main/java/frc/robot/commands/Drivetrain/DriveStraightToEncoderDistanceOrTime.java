@@ -22,12 +22,12 @@ public class DriveStraightToEncoderDistanceOrTime extends CommandBase {
   double tSpeed;
   double m_startTime = -1;
   double m_timeout = -1;
-  public DriveStraightToEncoderDistanceOrTime(double distance, double speed, double maxTime) {
+  public DriveStraightToEncoderDistanceOrTime(double distance, double speed) { //Add parameter of maxTime
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(RobotContainer.drivetrain);
     tSpeed = speed;
     targetDistance = distance;
-    this.withTimeout(maxTime);
+    //this.withTimeout(maxTime);
   }
 
   // Called when the command is initially scheduled.
@@ -54,15 +54,15 @@ public class DriveStraightToEncoderDistanceOrTime extends CommandBase {
   @Override
   public boolean isFinished() {
     if (targetDistance >= 0) 
-      return (RobotContainer.drivetrain.getEncoderDistanceLeft() >= targetDistance) || isTimedOut();
+      return (RobotContainer.drivetrain.getEncoderDistanceLeft() >= targetDistance); //Add isTimedOut() methods
     else
-      return (RobotContainer.drivetrain.getEncoderDistanceLeft() <= targetDistance) || isTimedOut();
+      return (RobotContainer.drivetrain.getEncoderDistanceLeft() <= targetDistance);
   }
 
-  public synchronized final double timeSinceInitialized() {
-    return m_startTime < 0 ? 0 : Timer.getFPGATimestamp() - m_startTime;
-  }
-  protected synchronized boolean isTimedOut() {
-    return m_timeout != -1 && timeSinceInitialized() >= m_timeout;
-  }
+  // public synchronized final double timeSinceInitialized() {
+  //   return m_startTime < 0 ? 0 : Timer.getFPGATimestamp() - m_startTime;
+  // }
+  // protected synchronized boolean isTimedOut() {
+  //   return m_timeout != -1 && timeSinceInitialized() >= m_timeout;
+  // }
 }
