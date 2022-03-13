@@ -5,15 +5,12 @@
 package frc.robot.commands.Auto;
 
 import frc.robot.commands.Drivetrain.DriveStraightToEncoderDistanceOrTime;
-import frc.robot.commands.Intake.DeployIntake;
 import frc.robot.commands.Intake.IntakeBallIn;
 import frc.robot.commands.Intake.IntakeOut;
 import frc.robot.commands.Intake.IntakeStop;
 import frc.robot.commands.Intake.InternalManipulatorIn;
 import frc.robot.commands.Shooter.ShootBallTarmac;
 import frc.robot.commands.VisionProcessor.CenterWithTarget;
-import edu.wpi.first.wpilibj2.command.Command;
-import edu.wpi.first.wpilibj2.command.CommandGroupBase;
 import edu.wpi.first.wpilibj2.command.ParallelCommandGroup;
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import edu.wpi.first.wpilibj2.command.WaitCommand;

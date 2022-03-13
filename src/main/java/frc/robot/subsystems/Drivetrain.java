@@ -61,7 +61,7 @@ public class Drivetrain extends SubsystemBase {
         revPerInch = (Math.PI*Constants.DRIVETRAIN_WHEEL_DIAMETER)/gearRatio;
     }
 
-    public void resetEncoder() {
+    public void resetDrivetrainEncoders() {
         leftEncoder.setPosition(0.0);
         rightEncoder.setPosition(0.0);
     }

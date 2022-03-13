@@ -8,7 +8,6 @@ import frc.robot.commands.Climber.*;
 import frc.robot.commands.Intake.*;
 import frc.robot.commands.Shooter.*;
 import frc.robot.commands.Drivetrain.*;
-import frc.robot.commands.VisionProcessor.*;
 import frc.robot.subsystems.Climber;
 import frc.robot.subsystems.Drivetrain;
 import frc.robot.subsystems.Intake;
@@ -50,7 +49,7 @@ public class OI {
         BUTTON_6.whileHeld(new DeployIntake());
         BUTTON_7.whenPressed(new HighGear());
 
-        BUTTON_1.whileHeld(new ClimberRetract());
+        BUTTON_9.whenPressed(new ClimberRetract());
         BUTTON_10.whenPressed(new ClimberPneumaticRetract());
         BUTTON_12.whenPressed(new IntakeIn());
         BUTTON_13.whenPressed(new IntakeOut());

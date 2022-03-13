@@ -4,11 +4,11 @@ package frc.robot.subsystems;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.RelativeEncoder;
 import com.revrobotics.SparkMaxLimitSwitch;
+import com.revrobotics.CANSparkMax.IdleMode;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.PneumaticsModuleType;
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 import edu.wpi.first.wpilibj.ADIS16448_IMU;
@@ -24,6 +24,7 @@ public class Climber extends SubsystemBase{
 
     public Climber() {
         climberControl = new CANSparkMax(Constants.CLIMBER_MOTOR_ID, MotorType.kBrushless);
+        climberControl.setIdleMode(IdleMode.kBrake);
         climberSolenoid = new DoubleSolenoid(PneumaticsModuleType.CTREPCM, Constants.CLIMBER_OUT_PNUEMATIC_ID, Constants.CLIMBER_IN_PNUEMATIC_ID);
 
         //topLimitSwitch = climberControl.getReverseLimitSwitch(SparkMaxLimitSwitch.Type.kNormallyClosed);
@@ -107,7 +108,14 @@ public class Climber extends SubsystemBase{
         return climberEncoder.getPosition();
     }
 
-    public void resetEncoder() {
+    public void resetClimberEncoder() {
         climberEncoder.setPosition(0.0);
+    }
+
+    public void setClimberMotorRev() {
+        while(climberEncoder.getPosition() <= Constants.CLIMBER_REV_UP) {
+            climberControl.set(Constants.CLIMBER_MOTOR_SPEED);
+        }
+        climberControl.set(0.0);
     }
 }

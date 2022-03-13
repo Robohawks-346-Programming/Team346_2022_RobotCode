@@ -81,8 +81,9 @@ public final class Constants {
     public static final int PS4_CONTROLLER_PORT                 = 0;
     public static final int BUTTON_BOARD_PORT                   = 1;
     // Motor revolutions
-    public static final int CLIMBER_REV_CYL_EXT                 = 700;
-    public static final int CLIMBER_REV_CYL_RET                 = 600;
+    public static final int CLIMBER_REV_CYL_EXT                 = 760;
+    public static final int CLIMBER_REV_CYL_RET                 = 640;
+    public static final int CLIMBER_REV_UP                      = 30;
 
     //PIDs
     public static final double DRIVE_P                          = 0;

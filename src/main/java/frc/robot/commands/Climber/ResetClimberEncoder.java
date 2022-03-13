@@ -8,7 +8,7 @@ import frc.robot.RobotContainer;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
 /** An example command that uses an example subsystem. */
-public class ResetEncoder extends CommandBase {
+public class ResetClimberEncoder extends CommandBase {
   @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
 
   /**
@@ -16,7 +16,7 @@ public class ResetEncoder extends CommandBase {
    *
    * @param subsystem The subsystem used by this command.
    */
-  public ResetEncoder() {
+  public ResetClimberEncoder() {
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(RobotContainer.climber);
   }
@@ -24,7 +24,7 @@ public class ResetEncoder extends CommandBase {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    RobotContainer.climber.resetEncoder();
+    RobotContainer.climber.resetClimberEncoder();
   }
 
   // Called every time the scheduler runs while the command is scheduled.

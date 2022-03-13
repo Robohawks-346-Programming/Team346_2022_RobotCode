@@ -5,7 +5,6 @@
 package frc.robot.commands.Drivetrain;
 
 import frc.robot.RobotContainer;
-import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
 /** An example command that uses an example subsystem. */
@@ -33,7 +32,7 @@ public class DriveStraightToEncoderDistanceOrTime extends CommandBase {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    RobotContainer.drivetrain.resetEncoder();
+    RobotContainer.drivetrain.resetDrivetrainEncoders();
     RobotContainer.drivetrain.resetGyro();
   }
 
