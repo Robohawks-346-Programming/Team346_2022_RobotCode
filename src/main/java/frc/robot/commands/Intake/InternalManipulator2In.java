@@ -9,7 +9,7 @@ import frc.robot.RobotContainer;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
 /** An example command that uses an example subsystem. */
-public class InternalManipulatorIn extends CommandBase {
+public class InternalManipulator2In extends CommandBase {
   @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
 
   /**
@@ -17,7 +17,7 @@ public class InternalManipulatorIn extends CommandBase {
    *
    * @param subsystem The subsystem used by this command.
    */
-  public InternalManipulatorIn() {
+  public InternalManipulator2In() {
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(RobotContainer.intake);
   }
@@ -29,13 +29,13 @@ public class InternalManipulatorIn extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    RobotContainer.intake.InternalManipulatorIn(Constants.INTERNAL_MANIPULATOR_MOTOR_SPEED);
+    RobotContainer.intake.InternalManipulator2In(Constants.INTERNAL_MANIPULATOR_2_MOTOR_SPEED);
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    RobotContainer.intake.InternalManipulatorIn(0.0);
+    RobotContainer.intake.InternalManipulator2In(0.0);
   }
 
   // Returns true when the command should end.

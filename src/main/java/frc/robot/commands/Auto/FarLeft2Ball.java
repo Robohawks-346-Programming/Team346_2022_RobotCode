@@ -8,7 +8,7 @@ import frc.robot.commands.Drivetrain.DriveStraightToEncoderDistanceOrTime;
 import frc.robot.commands.Intake.IntakeBallIn;
 import frc.robot.commands.Intake.IntakeOut;
 import frc.robot.commands.Intake.IntakeStop;
-import frc.robot.commands.Intake.InternalManipulatorIn;
+import frc.robot.commands.Intake.InternalManipulator1In;
 import frc.robot.commands.Shooter.ShootBallTarmac;
 import frc.robot.commands.VisionProcessor.CenterWithTarget;
 import edu.wpi.first.wpilibj2.command.ParallelCommandGroup;
@@ -34,7 +34,7 @@ public class FarLeft2Ball extends SequentialCommandGroup {
           new CenterWithTarget(),
           new ParallelCommandGroup(
             new ShootBallTarmac(),
-            new WaitCommand(1.5).andThen(new InternalManipulatorIn()),
+            new WaitCommand(1.5).andThen(new InternalManipulator1In()),
             new WaitCommand(2.5).andThen(new IntakeBallIn())
           )
         )

@@ -41,7 +41,7 @@ public class OI {
     }
     
     public static void configureButtonBindings(Drivetrain DRIVETRAIN, Shooter SHOOTER, Climber CLIMBER, Intake INTAKE) {
-        //BUTTON_1.whileHeld(new ClimberRetract()); // Will change to button 9
+        BUTTON_1.whileHeld(new InternalManipulator2In()); // Will change to button 9
         BUTTON_2.whenPressed(new ClimberExtend()); // Needs to change to whenPressed, once done testing
         BUTTON_3.whenPressed(new ClimberPneumaticExtend());
         //BUTTON_4.whenPressed(new ClimberPneumaticRetract()); // For testing, change to button 10
@@ -55,7 +55,7 @@ public class OI {
         BUTTON_13.whenPressed(new IntakeOut());
 
         BUTTON_14.whileHeld(new ShootBallPad());
-        BUTTON_15.whileHeld(new InternalManipulatorIn());
+        BUTTON_15.whileHeld(new InternalManipulator1In());
         BUTTON_16.whenPressed(new LowGear());
     }
 }

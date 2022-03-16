@@ -21,7 +21,8 @@ public final class Constants {
     public static final int RIGHT_REPLICA_MOTOR_ID              = 11;
 
     public static final int INTAKE_MOTOR_ID                     = 30;
-    public static final int INTERNAL_MANIPULATOR_MOTOR__ID      = 31;
+    public static final int INTERNAL_MANIPULATOR_1_MOTOR__ID    = 31;
+    public static final int INTERNAL_MANIPULATOR_2_MOTOR__ID    = 32;
 
     public static final int CLIMBER_MOTOR_ID                    = 40;
 
@@ -46,7 +47,8 @@ public final class Constants {
 
     //Intake motor speed
     public static final double INTAKE_MOTOR_SPEED               = 0.35;
-    public static final double INTERNAL_MANIPULATOR_MOTOR_SPEED = -0.35;
+    public static final double INTERNAL_MANIPULATOR_1_MOTOR_SPEED = -0.35;
+    public static final double INTERNAL_MANIPULATOR_2_MOTOR_SPEED = 1;
 
     public static final double CLIMBER_MOTOR_SPEED              = 0.65;
 
