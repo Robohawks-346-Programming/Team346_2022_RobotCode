@@ -33,8 +33,8 @@ public final class Constants {
     public static final int PCM_ID                              = 0;
 
     //Pnuematic Channels
-    public static final int HIGH_GEAR_PNUEMATIC_ID              = 2;
-    public static final int LOW_GEAR_PNUEMATIC_ID               = 3;
+    public static final int HIGH_GEAR_PNUEMATIC_ID              = 3;
+    public static final int LOW_GEAR_PNUEMATIC_ID               = 2;
 
     public static final int INTAKE_IN_PNUEMATIC_ID              = 1;
     public static final int INTAKE_OUT_PNUEMATIC_ID             = 0;
