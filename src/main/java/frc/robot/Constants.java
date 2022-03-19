@@ -50,12 +50,12 @@ public final class Constants {
     public static final double INTERNAL_MANIPULATOR_1_MOTOR_SPEED = -0.35;
     public static final double INTERNAL_MANIPULATOR_2_MOTOR_SPEED = 1;
 
-    public static final double CLIMBER_MOTOR_SPEED              = 0.65;
+    public static final double CLIMBER_MOTOR_SPEED              = 1;
 
-    public static final double SHOOTER_TARMAC_MOTOR_SPEED       = -0.66;
+    public static final double SHOOTER_TARMAC_MOTOR_SPEED       = -0.68;
     public static final double SHOOTER_MOTOR_SPEED              = -0.25;
 
-    public static final double SHOOTER_PAD_MOTOR_SPEED          = -0.76;
+    public static final double SHOOTER_PAD_MOTOR_SPEED          = -0.78;
     public static final double SHOOTER_HOOD_MOTOR_SPEED         = 0.25;
 
     public static final double DRIVETRAIN_MAX_MOVE_SPEED        = 0.8;
@@ -68,14 +68,14 @@ public final class Constants {
     public static final int LIME_TARGET_HEIGHT                  = 0;
     public static final int VISION_LED_ON                       = 0;
     public static final int VISION_LED_OFF                      = 1;
-    public static final int VISION_TURN                         = 0;
+    public static final double VISION_TURN                      = 0.5;
     public static final int VISION_MOVE                         = 0;
-    public static final double X_THRESHOLD                      = 0;
+    public static final double X_THRESHOLD                      = 5;
     public static final double Y_THRESHOLD                      = 0;
 
 
     //Sensor ports
-    public static final int LASER_BREAK_PORT                    = 0;
+    public static final int LASER_BREAK_PORT                    = 1;
     public static final int TOP_LIMIT_SWITCH_PORT               = 0;
     public static final int BOTTOM_LIMIT_SWITCH_PORT            = 0;
 

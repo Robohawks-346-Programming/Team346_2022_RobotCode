@@ -4,7 +4,9 @@
 
 package frc.robot.commands.VisionProcessor;
 
+import frc.robot.Constants;
 import frc.robot.RobotContainer;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
 /** An example command that uses an example subsystem. */
@@ -29,11 +31,14 @@ public class CenterWithTarget extends CommandBase {
   @Override
   public void execute() {
     RobotContainer.drivetrain.arcadeDrive(0.0, RobotContainer.visionprocessor.getRotate());  
-    }
+    SmartDashboard.putBoolean("Centered", RobotContainer.visionprocessor.isCentered());
+  }
 
   // Called once the command ends or is interrupted.
   @Override
-  public void end(boolean interrupted) {}
+  public void end(boolean interrupted) {
+    RobotContainer.drivetrain.arcadeDrive(0.0, 0.0);
+  }
 
   // Returns true when the command should end.
   @Override

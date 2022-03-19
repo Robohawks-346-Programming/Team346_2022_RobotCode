@@ -30,12 +30,14 @@ public class InternalManipulator1In extends CommandBase {
   @Override
   public void execute() {
     RobotContainer.intake.InternalManipulator1In(Constants.INTERNAL_MANIPULATOR_1_MOTOR_SPEED);
+    RobotContainer.intake.InternalManipulator2In(Constants.INTERNAL_MANIPULATOR_2_MOTOR_SPEED);
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
     RobotContainer.intake.InternalManipulator1In(0.0);
+    RobotContainer.intake.InternalManipulator2In(0.0);
   }
 
   // Returns true when the command should end.

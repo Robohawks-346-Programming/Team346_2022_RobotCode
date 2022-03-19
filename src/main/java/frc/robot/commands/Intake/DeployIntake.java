@@ -6,6 +6,7 @@ package frc.robot.commands.Intake;
 
 import frc.robot.Constants;
 import frc.robot.RobotContainer;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
 /** An example command that uses an example subsystem. */
@@ -19,7 +20,6 @@ public class DeployIntake extends CommandBase {
    */
   public DeployIntake() {
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(RobotContainer.intake);
   }
 
   // Called when the command is initially scheduled.
@@ -31,6 +31,8 @@ public class DeployIntake extends CommandBase {
   public void execute() {
     RobotContainer.intake.intakeOut();
     RobotContainer.intake.intakeBallIn(Constants.INTAKE_MOTOR_SPEED);
+    RobotContainer.intake.InternalManipulator1In(Constants.INTERNAL_MANIPULATOR_1_MOTOR_SPEED);
+    SmartDashboard.putBoolean("Laser break", RobotContainer.intake.hasBall());
   }
 
   // Called once the command ends or is interrupted.
@@ -38,6 +40,7 @@ public class DeployIntake extends CommandBase {
   public void end(boolean interrupted) {
     RobotContainer.intake.intakeIn();
     RobotContainer.intake.intakeBallIn(0.0);
+    RobotContainer.intake.InternalManipulator1In(0.0);
   }
 
   // Returns true when the command should end.

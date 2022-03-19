@@ -68,7 +68,7 @@ public class Intake extends SubsystemBase{
     }
 
     public void InternalManipulator2Out(double motorSpeed) {
-        internalManipulator1.set(-motorSpeed);
+        internalManipulator2.set(-motorSpeed);
     }
     // public void ballStopOff() {
     //     ballStopper.set(Value.kOff);

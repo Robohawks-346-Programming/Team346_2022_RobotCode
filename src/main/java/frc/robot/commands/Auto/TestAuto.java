@@ -4,27 +4,41 @@
 
 package frc.robot.commands.Auto;
 
-import frc.robot.commands.Drivetrain.DriveStraightToEncoderDistanceOrTime;
+import frc.robot.RobotContainer;
+import frc.robot.commands.Drivetrain.*;
+import frc.robot.commands.Intake.*;
+import frc.robot.commands.Shooter.*;
+import frc.robot.commands.VisionProcessor.*;
 import edu.wpi.first.wpilibj2.command.ParallelCommandGroup;
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
+import edu.wpi.first.wpilibj2.command.WaitCommand;
 
 /** An example command that uses an example subsystem. */
-public class MoveOnly extends SequentialCommandGroup {
+public class TestAuto extends SequentialCommandGroup {
   @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
   /**
    * Creates a new ExampleCommand.
    *
    * @param subsystem The subsystem used by this command.
    */
-  public MoveOnly() {
+  public TestAuto() {
     // Use addRequirements() here to declare subsystem dependencies.
     addCommands(
       new ParallelCommandGroup(
+        new HighGear(),
+        new DeployIntake(),
         new SequentialCommandGroup(
-          new DriveStraightToEncoderDistanceOrTime(-43.0, -0.5)
+          new DriveStraightToEncoderDistanceOrTime(-70.0, -0.5),
+          new CenterWithTarget(),
+          new ParallelCommandGroup(
+            new ShootBallTarmacAuto(),
+            new SequentialCommandGroup(
+              new WaitCommand(3),
+              new InternalManipulator2In()
+            )
+          )
         )
       )
-      
     );
   }
 

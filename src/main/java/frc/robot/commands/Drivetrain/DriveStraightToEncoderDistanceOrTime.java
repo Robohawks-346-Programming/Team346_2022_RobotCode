@@ -5,6 +5,7 @@
 package frc.robot.commands.Drivetrain;
 
 import frc.robot.RobotContainer;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
 /** An example command that uses an example subsystem. */
@@ -21,6 +22,9 @@ public class DriveStraightToEncoderDistanceOrTime extends CommandBase {
   double tSpeed;
   double m_startTime = -1;
   double m_timeout = -1;
+
+  public static boolean isDone = false;
+
   public DriveStraightToEncoderDistanceOrTime(double distance, double speed) { //Add parameter of maxTime
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(RobotContainer.drivetrain);
@@ -34,28 +38,30 @@ public class DriveStraightToEncoderDistanceOrTime extends CommandBase {
   public void initialize() {
     RobotContainer.drivetrain.resetDrivetrainEncoders();
     RobotContainer.drivetrain.resetGyro();
+    isDone = false;
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    RobotContainer.drivetrain.arcadeDrive(tSpeed, rotate);
+    RobotContainer.drivetrain.driveStraightEncoder(tSpeed);
+    SmartDashboard.putNumber("Motor left", RobotContainer.drivetrain.getEncoderDistanceLeft());
+    SmartDashboard.putNumber("Motor right", RobotContainer.drivetrain.getEncoderDistanceRight());
+    SmartDashboard.putNumber("Motor rev drivetrain", RobotContainer.drivetrain.getPositionLeftEncoder());
+
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
     RobotContainer.drivetrain.arcadeDrive(0.0, 0.0);
-    
+    isDone = true;
   }
 
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    if (targetDistance >= 0) 
-      return (RobotContainer.drivetrain.getEncoderDistanceLeft() >= targetDistance); //Add isTimedOut() methods
-    else
-      return (RobotContainer.drivetrain.getEncoderDistanceLeft() <= targetDistance);
+    return RobotContainer.drivetrain.getPositionLeftEncoder() < targetDistance;
   }
 
   // public synchronized final double timeSinceInitialized() {

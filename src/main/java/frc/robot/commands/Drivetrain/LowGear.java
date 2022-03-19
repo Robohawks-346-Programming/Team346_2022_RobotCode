@@ -18,7 +18,6 @@ public class LowGear extends CommandBase {
    */
   public LowGear() {
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(RobotContainer.drivetrain);
   }
 
   // Called when the command is initially scheduled.

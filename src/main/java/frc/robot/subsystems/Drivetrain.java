@@ -20,7 +20,7 @@ public class Drivetrain extends SubsystemBase {
     DifferentialDrive drive;
     DoubleSolenoid gearShifter;
 
-    double revPerInch;
+    double revPerInch = (Math.PI*Constants.DRIVETRAIN_WHEEL_DIAMETER)/ Constants.DRIVETRAIN_LOW_GEAR_RATIO;
     double gearRatio;
 
     public Drivetrain() {
@@ -97,5 +97,9 @@ public class Drivetrain extends SubsystemBase {
 
     public double getAngle() {
         return RobotContainer.climber.gyro.getGyroAngleZ();
+    }
+
+    public double getPositionLeftEncoder() {
+        return leftEncoder.getPosition();
     }
 }
