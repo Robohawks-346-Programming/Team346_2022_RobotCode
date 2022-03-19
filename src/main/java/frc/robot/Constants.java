@@ -46,13 +46,13 @@ public final class Constants {
     // public static final int BALL_STOPPER_OUT_PNUEMATIC_ID       = 5;
 
     //Intake motor speed
-    public static final double INTAKE_MOTOR_SPEED               = 0.35;
+    public static final double INTAKE_MOTOR_SPEED               = 0.5;
     public static final double INTERNAL_MANIPULATOR_1_MOTOR_SPEED = -0.35;
     public static final double INTERNAL_MANIPULATOR_2_MOTOR_SPEED = 1;
 
     public static final double CLIMBER_MOTOR_SPEED              = 1;
 
-    public static final double SHOOTER_TARMAC_MOTOR_SPEED       = -0.68;
+    public static final double SHOOTER_TARMAC_MOTOR_SPEED       = -0.74;
     public static final double SHOOTER_MOTOR_SPEED              = -0.25;
 
     public static final double SHOOTER_PAD_MOTOR_SPEED          = -0.78;

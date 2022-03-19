@@ -80,7 +80,6 @@ public class Robot extends TimedRobot {
       m_autonomousCommand.cancel();
     }
     CommandScheduler.getInstance().cancelAll();
-    RobotContainer.drivetrain.shiftLowGear();
     RobotContainer.drivetrain.setDefaultCommand(new JoystickDrive());
 
   }

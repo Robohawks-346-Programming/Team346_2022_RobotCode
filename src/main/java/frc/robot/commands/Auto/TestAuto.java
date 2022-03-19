@@ -25,7 +25,7 @@ public class TestAuto extends SequentialCommandGroup {
     // Use addRequirements() here to declare subsystem dependencies.
     addCommands(
       new ParallelCommandGroup(
-        new HighGear(),
+        new LowGear(),
         new DeployIntake(),
         new SequentialCommandGroup(
           new DriveStraightToEncoderDistanceOrTime(-70.0, -0.5),

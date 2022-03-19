@@ -29,7 +29,7 @@ public class ShootBallTarmacAuto extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    RobotContainer.shooter.shootBall(Constants.SHOOTER_TARMAC_MOTOR_SPEED + 0.02);
+    RobotContainer.shooter.shootBall(Constants.SHOOTER_TARMAC_MOTOR_SPEED + 0.05);
   }
 
   // Called once the command ends or is interrupted.
