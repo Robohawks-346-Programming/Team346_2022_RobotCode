@@ -107,12 +107,16 @@ public class VisionProcessor implements Subsystem{
     public double getDistanceToTarget()
     {
         double limelightHeight = Constants.LIMELIGHT_HEIGHT;
-        double targetHeight = Constants.LIME_TARGET_HEIGHT;
-        double targetAngle = getNTInfo("ty") + 5; //Needs to add 5 to correct limelight error. Found through testing
-        Double offsetAngle = 0.0; //Uses a constant if limelight is mounted on a tilt.
+        double targetHeight = Constants.TARGET_HEIGHT;
+        double targetAngle = getNTInfo("ty") + 2.5; //Needs to add 5 to correct limelight error. Found through testing
+        double offsetAngle = Constants.LIMELIGHT_ANGLE; 
+        double totalRads = (offsetAngle + targetAngle) * (3.14159265 / 180);
         SmartDashboard.putNumber("Angle Offset: ", offsetAngle);
         SmartDashboard.putNumber("Target Angle: ", targetAngle);
-        return((targetHeight-limelightHeight)/(Math.tan(Math.toRadians(offsetAngle+targetAngle)))); 
+        double distance = ((targetHeight-limelightHeight)/(Math.tan(totalRads))); 
+        SmartDashboard.putNumber("Distance Value", distance);
+        return distance;
+
     }
 
     public void pushData() {

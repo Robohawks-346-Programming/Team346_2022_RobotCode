@@ -41,7 +41,6 @@ public class ClimberExtend extends CommandBase {
   @Override
   public void end(boolean interrupted) {
     RobotContainer.climber.climberArmExtend(0.0);
-    //System.out.println("cancel");
   }
 
   // Returns true when the command should end.

@@ -24,7 +24,8 @@ public final class Constants {
     public static final int INTERNAL_MANIPULATOR_1_MOTOR__ID    = 31;
     public static final int INTERNAL_MANIPULATOR_2_MOTOR__ID    = 32;
 
-    public static final int CLIMBER_MOTOR_ID                    = 40;
+    public static final int CLIMBER_1_MOTOR_ID                  = 40;
+    public static final int CLIMBER_2_MOTOR_ID                  = 41;
 
     public static final int SHOOTER_MOTOR_ID                    = 20;
     public static final int SHOOTER_HOOD_MOTOR_ID               = 0;
@@ -42,9 +43,6 @@ public final class Constants {
     public static final int CLIMBER_IN_PNUEMATIC_ID             = 4;
     public static final int CLIMBER_OUT_PNUEMATIC_ID            = 5;
 
-    // public static final int BALL_STOPPER_IN_PNUEMATIC_ID        = 4;
-    // public static final int BALL_STOPPER_OUT_PNUEMATIC_ID       = 5;
-
     //Intake motor speed
     public static final double INTAKE_MOTOR_SPEED               = 0.5;
     public static final double INTERNAL_MANIPULATOR_1_MOTOR_SPEED = -0.35;
@@ -55,17 +53,17 @@ public final class Constants {
     public static final double SHOOTER_TARMAC_MOTOR_SPEED       = -0.74;
     public static final double SHOOTER_MOTOR_SPEED              = -0.25;
 
-    public static final double SHOOTER_PAD_MOTOR_SPEED          = -0.78;
+    public static final double SHOOTER_PAD_MOTOR_SPEED          = -0.6; // original = 0.78, don't go above 0.88, don't go below 0.58? 
     public static final double SHOOTER_HOOD_MOTOR_SPEED         = 0.25;
 
     public static final double DRIVETRAIN_MAX_MOVE_SPEED        = 0.8;
     public static final double DRIVETRAIN_MAX_TURN_SPEED        = 0.75;
 
     //Limelight variables
-    public static final double TARGET_HEIGHT                    = 0;
+    public static final double TARGET_HEIGHT                    = 8.667;
     public static final double SHOOTER_HEIGHT                   = 0;
-    public static final double LIMELIGHT_HEIGHT                 = 0;
-    public static final int LIME_TARGET_HEIGHT                  = 0;
+    public static final double LIMELIGHT_HEIGHT                 = 2.333;
+    public static final double LIMELIGHT_ANGLE                  = 25.0;
     public static final int VISION_LED_ON                       = 0;
     public static final int VISION_LED_OFF                      = 1;
     public static final double VISION_TURN                      = 0.5;
@@ -76,8 +74,8 @@ public final class Constants {
 
     //Sensor ports
     public static final int LASER_BREAK_PORT                    = 1;
-    public static final int TOP_LIMIT_SWITCH_PORT               = 0;
-    public static final int BOTTOM_LIMIT_SWITCH_PORT            = 0;
+    public static final int FORWARD_CLIMB_LIMIT_PORT            = 9;
+    public static final int REVERSE_CLIMB_LIMIT_PORT            = 8;
 
     //Driver/Operator ports
     public static final int PS4_CONTROLLER_PORT                 = 0;

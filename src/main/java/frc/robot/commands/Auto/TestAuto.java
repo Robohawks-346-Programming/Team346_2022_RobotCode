@@ -4,7 +4,6 @@
 
 package frc.robot.commands.Auto;
 
-import frc.robot.RobotContainer;
 import frc.robot.commands.Drivetrain.*;
 import frc.robot.commands.Intake.*;
 import frc.robot.commands.Shooter.*;

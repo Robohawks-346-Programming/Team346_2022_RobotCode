@@ -3,40 +3,41 @@ package frc.robot.subsystems;
 
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.RelativeEncoder;
-import com.revrobotics.SparkMaxLimitSwitch;
 import com.revrobotics.CANSparkMax.IdleMode;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
+import com.revrobotics.SparkMaxAlternateEncoder.Type;
+
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.PneumaticsModuleType;
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 import edu.wpi.first.wpilibj.ADIS16448_IMU;
+import edu.wpi.first.wpilibj.DigitalInput;
 
 public class Climber extends SubsystemBase{
     // Initialize Variables
-    CANSparkMax climberControl;
+    CANSparkMax climberControl1, climberControl2;
     DoubleSolenoid climberSolenoid;
     ADIS16448_IMU gyro;
-    SparkMaxLimitSwitch topLimitSwitch, bottomLimitSwitch;
+    DigitalInput forwardLimit, reverseLimit;
     RelativeEncoder climberEncoder;
     boolean climberExtended = false;
 
     public Climber() {
-        climberControl = new CANSparkMax(Constants.CLIMBER_MOTOR_ID, MotorType.kBrushless);
-        climberControl.setIdleMode(IdleMode.kBrake);
+        climberControl1 = new CANSparkMax(Constants.CLIMBER_1_MOTOR_ID, MotorType.kBrushed);
+        climberControl2 = new CANSparkMax(Constants.CLIMBER_2_MOTOR_ID, MotorType.kBrushed);
+        climberControl1.setIdleMode(IdleMode.kBrake);
+        climberControl2.setIdleMode(IdleMode.kBrake);
         climberSolenoid = new DoubleSolenoid(PneumaticsModuleType.CTREPCM, Constants.CLIMBER_OUT_PNUEMATIC_ID, Constants.CLIMBER_IN_PNUEMATIC_ID);
 
-        //topLimitSwitch = climberControl.getReverseLimitSwitch(SparkMaxLimitSwitch.Type.kNormallyClosed);
-        //bottomLimitSwitch = climberControl.getForwardLimitSwitch(SparkMaxLimitSwitch.Type.kNormallyClosed);
-
-        //topLimitSwitch.enableLimitSwitch(true);
-        //bottomLimitSwitch.enableLimitSwitch(true);
-
+        forwardLimit = new DigitalInput(Constants.FORWARD_CLIMB_LIMIT_PORT);
+        reverseLimit = new DigitalInput(Constants.REVERSE_CLIMB_LIMIT_PORT);
+        
         gyro = new ADIS16448_IMU();
         gyro.reset();
 
-        climberEncoder = climberControl.getEncoder();
+        climberEncoder = climberControl1.getAlternateEncoder(Type.kQuadrature, 4096);
     }
 
     public void climberPneumaticExtend() {
@@ -57,7 +58,8 @@ public class Climber extends SubsystemBase{
         //else if(getForwardLimitPosition()) {
         //    climberControl.set(output);
         //}
-        climberControl.set(climberSpeed);
+        climberControl1.set(climberSpeed);
+        climberControl2.set(climberSpeed);
     }
 
     // public void climberArmRetract(double climberSpeed){
@@ -73,7 +75,8 @@ public class Climber extends SubsystemBase{
         //else if(getForwardLimitPosition()) {
         //    climberControl.set(output);
         //}
-        climberControl.set(-climberSpeed);
+        climberControl1.set(-climberSpeed);
+        climberControl2.set(-climberSpeed);
     }
     
     // public boolean atMaxExtension() {
@@ -92,17 +95,17 @@ public class Climber extends SubsystemBase{
         //return true;
     //}
 
-    // public boolean isClimberRetracted() {
-    //     return topLimitSwitch.isPressed();
-    // }
+    public boolean isClimberRetracted() {
+        return reverseLimit.get();
+    }
 
-    // public boolean getReverseLimitPosition() {
-    //     return topLimitSwitch.isPressed();
-    // }
+    public boolean getReverseLimitPosition() {
+        return reverseLimit.get();
+    }
 
-    // public boolean getForwardLimitPosition() {
-    //     return bottomLimitSwitch.isPressed();
-    // }
+    public boolean getForwardLimitPosition() {
+        return forwardLimit.get();
+    }
 
     public double getMotorRevolutions() {
         return climberEncoder.getPosition();
@@ -114,8 +117,10 @@ public class Climber extends SubsystemBase{
 
     public void setClimberMotorRev() {
         while(climberEncoder.getPosition() <= Constants.CLIMBER_REV_UP) {
-            climberControl.set(Constants.CLIMBER_MOTOR_SPEED);
+            climberControl1.set(Constants.CLIMBER_MOTOR_SPEED);
+            climberControl2.set(Constants.CLIMBER_MOTOR_SPEED);
         }
-        climberControl.set(0.0);
+        climberControl1.set(0.0);
+        climberControl2.set(0.0);
     }
 }

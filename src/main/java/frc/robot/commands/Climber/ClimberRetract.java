@@ -38,7 +38,6 @@ public class ClimberRetract extends CommandBase {
   @Override
   public void end(boolean interrupted) {
     RobotContainer.climber.climberArmRetract(0.0);
-    
     RobotContainer.climber.setClimberMotorRev();
   }
 
