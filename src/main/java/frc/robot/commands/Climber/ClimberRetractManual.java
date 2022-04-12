@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
 /** An example command that uses an example subsystem. */
-public class ClimberRetract extends CommandBase {
+public class ClimberRetractManual extends CommandBase {
   @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
 
   /**
@@ -18,32 +18,33 @@ public class ClimberRetract extends CommandBase {
    *
    * @param subsystem The subsystem used by this command.
    */
-  public ClimberRetract() {
+  public ClimberRetractManual() {
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(RobotContainer.climber);
   }
 
   // Called when the command is initially scheduled.
   @Override
-  public void initialize() {}
+  public void initialize() {
+    RobotContainer.climber.resetClimberEncoder();
+  }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    RobotContainer.climber.climberArmRetract(Constants.CLIMBER_MOTOR_SPEED);
-    SmartDashboard.putNumber("Motor rev retact", RobotContainer.climber.getMotorRevolutions());
+      RobotContainer.climber.climberArmRetract(Constants.CLIMBER_MOTOR_SPEED);
+
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
     RobotContainer.climber.climberArmRetract(0.0);
-    //RobotContainer.climber.setClimberMotorRev();
   }
 
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return RobotContainer.climber.isClimberRetracted();
+    return false;
   }
 }

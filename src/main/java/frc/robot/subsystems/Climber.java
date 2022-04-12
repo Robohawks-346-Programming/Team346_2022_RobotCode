@@ -51,49 +51,27 @@ public class Climber extends SubsystemBase{
     }
 
     public void climberArmExtend(double climberSpeed){
-        //double output = climberSpeed;
-        //if(getReverseLimitPosition()) {
-        //    climberControl.set(-output);
-        //}
-        //else if(getForwardLimitPosition()) {
-        //    climberControl.set(output);
-        //}
         climberControl1.set(climberSpeed);
         climberControl2.set(climberSpeed);
     }
 
-    // public void climberArmRetract(double climberSpeed){
-    //     climberControl.set(-climberSpeed);
-    // }\[]
-
     public void climberArmRetract(double climberSpeed){
-        //double output = climberSpeed;
-        //SmartDashboard.putNumber("Motor rev", climberEncoder.getPosition());
-        //if(getReverseLimitPosition()) {
-        //    climberControl.set(-output);
-        //}
-        //else if(getForwardLimitPosition()) {
-        //    climberControl.set(output);
-        //}
         climberControl1.set(-climberSpeed);
         climberControl2.set(-climberSpeed);
     }
-    
-    // public boolean atMaxExtension() {
-    //     return topLimitSwitch.get();
-    // }
 
     public boolean atMaxExtension() {
-        //if (!bottomLimitSwitch.isPressed()) {
-            if(climberExtended) {
+        if (!forwardLimit.get()) {
+            if(!climberExtended) {
                 return climberEncoder.getPosition() >= Constants.CLIMBER_REV_CYL_EXT;
             }
             else {
                 return climberEncoder.getPosition() >= Constants.CLIMBER_REV_CYL_RET;
             }
+        
         }
-        //return true;
-    //}
+        return true;
+    }
 
     public boolean isClimberRetracted() {
         return reverseLimit.get();

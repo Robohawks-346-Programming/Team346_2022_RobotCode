@@ -48,7 +48,7 @@ public final class Constants {
     public static final double INTERNAL_MANIPULATOR_1_MOTOR_SPEED = -0.35;
     public static final double INTERNAL_MANIPULATOR_2_MOTOR_SPEED = 1;
 
-    public static final double CLIMBER_MOTOR_SPEED              = 1;
+    public static final double CLIMBER_MOTOR_SPEED              = 0.5;
 
     public static final double SHOOTER_TARMAC_MOTOR_SPEED       = -0.74;
     public static final double SHOOTER_MOTOR_SPEED              = -0.25;
@@ -81,9 +81,9 @@ public final class Constants {
     public static final int PS4_CONTROLLER_PORT                 = 0;
     public static final int BUTTON_BOARD_PORT                   = 1;
     // Motor revolutions
-    public static final int CLIMBER_REV_CYL_EXT                 = 760;
-    public static final int CLIMBER_REV_CYL_RET                 = 640;
-    public static final int CLIMBER_REV_UP                      = 30;
+    public static final double CLIMBER_REV_CYL_EXT              = 10; //146.7
+    public static final double CLIMBER_REV_CYL_RET              = 10; //133.2
+    public static final int CLIMBER_REV_UP                      = 0;
 
     //PIDs
     public static final double DRIVE_P                          = 0;

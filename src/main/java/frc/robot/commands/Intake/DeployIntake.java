@@ -46,6 +46,6 @@ public class DeployIntake extends CommandBase {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return RobotContainer.intake.hasBall();
+    return false;//RobotContainer.intake.hasBall();
   }
 }
