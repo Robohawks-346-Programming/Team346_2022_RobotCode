@@ -3,6 +3,7 @@ package frc.robot.subsystems;
 
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.RelativeEncoder;
+import com.revrobotics.SparkMaxAlternateEncoder;
 import com.revrobotics.CANSparkMax.IdleMode;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 import com.revrobotics.SparkMaxAlternateEncoder.Type;
@@ -21,6 +22,7 @@ public class Climber extends SubsystemBase{
     DoubleSolenoid climberSolenoid;
     ADIS16448_IMU gyro;
     DigitalInput forwardLimit, reverseLimit;
+    SparkMaxAlternateEncoder.Type encoderType = SparkMaxAlternateEncoder.Type.kQuadrature;
     RelativeEncoder climberEncoder;
     boolean climberExtended = false;
 
@@ -37,7 +39,7 @@ public class Climber extends SubsystemBase{
         gyro = new ADIS16448_IMU();
         gyro.reset();
 
-        climberEncoder = climberControl1.getAlternateEncoder(Type.kQuadrature, 4096);
+        climberEncoder = climberControl1.getAlternateEncoder(encoderType, 1024);
     }
 
     public void climberPneumaticExtend() {
