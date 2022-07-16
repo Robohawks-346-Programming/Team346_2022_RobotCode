@@ -50,7 +50,7 @@ public class OI {
     
     public static void configureButtonBindings(Drivetrain DRIVETRAIN, Shooter SHOOTER, Climber CLIMBER, Intake INTAKE, VisionProcessor VISIONPROCESSOR) {
         BUTTON_1.whileHeld(new ClimberRetractManual());
-        BUTTON_2.whileHeld(new ClimberExtend()); // Needs to change to whenPressed, once done testing
+        BUTTON_2.whenPressed(new ClimberExtend()); // Needs to change to whenPressed, once done testing
         BUTTON_3.whenPressed(new ClimberPneumaticExtend());
         BUTTON_4.whileHeld(new InternalManipulator2Out());
         BUTTON_5.whileHeld(new ShootBallTarmac());

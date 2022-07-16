@@ -33,8 +33,6 @@ public class ClimberExtend extends CommandBase {
   @Override
   public void execute() {
       RobotContainer.climber.climberArmExtend(Constants.CLIMBER_MOTOR_SPEED);
-      SmartDashboard.putNumber("Motor rev", RobotContainer.climber.getMotorRevolutions());
-
   }
 
   // Called once the command ends or is interrupted.
