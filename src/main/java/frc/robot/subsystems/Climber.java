@@ -33,7 +33,6 @@ public class Climber extends SubsystemBase{
         climberControl2 = new CANSparkMax(Constants.CLIMBER_2_MOTOR_ID, MotorType.kBrushed);
         climberControl1.setIdleMode(IdleMode.kCoast);
         climberControl2.setIdleMode(IdleMode.kCoast);
-        climberControl1.setInverted(true);
         climberSolenoid = new DoubleSolenoid(PneumaticsModuleType.CTREPCM, Constants.CLIMBER_OUT_PNUEMATIC_ID, Constants.CLIMBER_IN_PNUEMATIC_ID);
 
         forwardLimit = new DigitalInput(Constants.FORWARD_CLIMB_LIMIT_PORT);
@@ -72,7 +71,7 @@ public class Climber extends SubsystemBase{
                 return climberEncoder.getPosition() >= Constants.CLIMBER_REV_CYL_EXT;
             }
             else {
-                return climberEncoder.getPosition() <= Constants.CLIMBER_REV_CYL_RET;
+                return climberEncoder.getPosition() >= Constants.CLIMBER_REV_CYL_RET;
             }
         
         }
