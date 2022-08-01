@@ -1,7 +1,5 @@
 package frc.robot.subsystems;
 
-
-import com.revrobotics.AlternateEncoderType;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.RelativeEncoder;
 import com.revrobotics.SparkMaxAlternateEncoder;
@@ -34,7 +32,7 @@ public class Climber extends SubsystemBase{
         climberControl1.setIdleMode(IdleMode.kCoast);
         climberControl2.setIdleMode(IdleMode.kCoast);
         climberSolenoid = new DoubleSolenoid(PneumaticsModuleType.CTREPCM, Constants.CLIMBER_OUT_PNUEMATIC_ID, Constants.CLIMBER_IN_PNUEMATIC_ID);
-
+        climberControl1.setInverted(true);
         forwardLimit = new DigitalInput(Constants.FORWARD_CLIMB_LIMIT_PORT);
         reverseLimit = new DigitalInput(Constants.REVERSE_CLIMB_LIMIT_PORT);
         
@@ -57,12 +55,16 @@ public class Climber extends SubsystemBase{
     public void climberArmExtend(double climberSpeed){
         climberControl1.set(climberSpeed);
         climberControl2.set(climberSpeed);
-        SmartDashboard.putNumber("Climber rev", climberEncoder.getPosition());
+        SmartDashboard.putNumber("Climber motor extend", climberEncoder.getPosition());
+        SmartDashboard.putBoolean("Climber extend limit", forwardLimit.get());
+
     }
 
     public void climberArmRetract(double climberSpeed){
         climberControl1.set(-climberSpeed);
         climberControl2.set(-climberSpeed);
+        SmartDashboard.putNumber("Climber motor retract", climberEncoder.getPosition());
+        SmartDashboard.putBoolean("Climber reverse limit", reverseLimit.get());
     }
 
     public boolean atMaxExtension() {
@@ -79,7 +81,10 @@ public class Climber extends SubsystemBase{
     }
 
     public boolean isClimberRetracted() {
-        return reverseLimit.get();
+        if (!reverseLimit.get()) {
+            return false;
+        }
+        return true;
     }
 
     public boolean getReverseLimitPosition() {

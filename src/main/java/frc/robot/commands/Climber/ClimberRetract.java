@@ -31,7 +31,7 @@ public class ClimberRetract extends CommandBase {
   @Override
   public void execute() {
     RobotContainer.climber.climberArmRetract(Constants.CLIMBER_MOTOR_SPEED);
-    //SmartDashboard.putNumber("Motor rev retact", RobotContainer.climber.getMotorRevolutions());
+    //SmartDashboard.putNumber("Climber Motor Retract", RobotContainer.climber.getMotorRevolutions());
   }
 
   // Called once the command ends or is interrupted.
@@ -39,6 +39,7 @@ public class ClimberRetract extends CommandBase {
   public void end(boolean interrupted) {
     RobotContainer.climber.climberArmRetract(0.0);
     //RobotContainer.climber.setClimberMotorRev();
+    
   }
 
   // Returns true when the command should end.

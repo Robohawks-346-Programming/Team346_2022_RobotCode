@@ -30,7 +30,7 @@ public class CenterWithTarget extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    RobotContainer.drivetrain.arcadeDrive(0.0, RobotContainer.visionprocessor.getRotate());  
+    RobotContainer.drivetrain.arcadeDrive(0.0,RobotContainer.visionprocessor.getRotate());  
     SmartDashboard.putBoolean("Centered", RobotContainer.visionprocessor.isCentered());
   }
 

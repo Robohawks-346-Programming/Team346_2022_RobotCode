@@ -46,9 +46,9 @@ public final class Constants {
     //Intake motor speed
     public static final double INTAKE_MOTOR_SPEED               = 0.5;
     public static final double INTERNAL_MANIPULATOR_1_MOTOR_SPEED = -0.35;
-    public static final double INTERNAL_MANIPULATOR_2_MOTOR_SPEED = 1;
+    public static final double INTERNAL_MANIPULATOR_2_MOTOR_SPEED = 0.5;
 
-    public static final double CLIMBER_MOTOR_SPEED              = 0.5;
+    public static final double CLIMBER_MOTOR_SPEED              = -0.5;
 
     public static final double SHOOTER_TARMAC_MOTOR_SPEED       = -0.74;
     public static final double SHOOTER_MOTOR_SPEED              = -0.25;
@@ -74,15 +74,15 @@ public final class Constants {
 
     //Sensor ports
     public static final int LASER_BREAK_PORT                    = 1;
-    public static final int FORWARD_CLIMB_LIMIT_PORT            = 9;
-    public static final int REVERSE_CLIMB_LIMIT_PORT            = 8;
+    public static final int FORWARD_CLIMB_LIMIT_PORT            = 7;
+    public static final int REVERSE_CLIMB_LIMIT_PORT            = 6;
 
     //Driver/Operator ports
     public static final int PS4_CONTROLLER_PORT                 = 0;
     public static final int BUTTON_BOARD_PORT                   = 1;
     // Motor revolutions
-    public static final double CLIMBER_REV_CYL_EXT              = 0.552; //146.7
-    public static final double CLIMBER_REV_CYL_RET              = 0.552; //133.2
+    public static final double CLIMBER_REV_CYL_EXT              = 0.7; //146.7
+    public static final double CLIMBER_REV_CYL_RET              = 0.1; //133.2
     public static final int CLIMBER_REV_UP                      = 0;
 
     //PIDs

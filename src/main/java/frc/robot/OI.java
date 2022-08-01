@@ -1,4 +1,5 @@
 
+
 package frc.robot;
 
 import edu.wpi.first.wpilibj.PS4Controller;
@@ -50,14 +51,14 @@ public class OI {
     
     public static void configureButtonBindings(Drivetrain DRIVETRAIN, Shooter SHOOTER, Climber CLIMBER, Intake INTAKE, VisionProcessor VISIONPROCESSOR) {
         BUTTON_1.whileHeld(new ClimberRetractManual());
-        BUTTON_2.whenPressed(new ClimberExtend()); // Needs to change to whenPressed, once done testing
+        BUTTON_2.whileHeld(new ClimberExtend()); // Needs to change to whenPressed, once done testing
         BUTTON_3.whenPressed(new ClimberPneumaticExtend());
         BUTTON_4.whileHeld(new InternalManipulator2Out());
         BUTTON_5.whileHeld(new ShootBallTarmac());
         BUTTON_6.whileHeld(new DeployIntake());
         BUTTON_7.whenPressed(new HighGear());
 
-        BUTTON_9.whileHeld(new ClimberRetract());
+        BUTTON_9.whenPressed(new ClimberRetract());
         BUTTON_10.whenPressed(new ClimberPneumaticRetract());
 
 
