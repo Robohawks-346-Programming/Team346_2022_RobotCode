@@ -61,8 +61,8 @@ public class Climber extends SubsystemBase{
     }
 
     public void climberArmRetract(double climberSpeed){
-        climberControl1.set(-climberSpeed);
-        climberControl2.set(-climberSpeed);
+        climberControl1.set(0.75);
+        climberControl2.set(0.75);
         SmartDashboard.putNumber("Climber motor retract", climberEncoder.getPosition());
         SmartDashboard.putBoolean("Climber reverse limit", reverseLimit.get());
     }

@@ -3,6 +3,7 @@ package frc.robot.subsystems;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.RelativeEncoder;
+import com.revrobotics.CANSparkMax.IdleMode;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.PneumaticsModuleType;
@@ -28,6 +29,11 @@ public class Drivetrain extends SubsystemBase {
         leftReplica = new CANSparkMax(Constants.LEFT_REPLICA_MOTOR_ID, MotorType.kBrushless);
         rightPrimary = new CANSparkMax(Constants.RIGHT_PRIMARY_MOTOR_ID, MotorType.kBrushless);
         rightReplica = new CANSparkMax(Constants.RIGHT_REPLICA_MOTOR_ID, MotorType.kBrushless);
+
+        leftPrimary.setIdleMode(IdleMode.kBrake);
+        leftReplica.setIdleMode(IdleMode.kBrake);
+        rightPrimary.setIdleMode(IdleMode.kBrake);
+        rightReplica.setIdleMode(IdleMode.kBrake);
 
         leftEncoder = leftPrimary.getEncoder();
         rightEncoder = rightPrimary.getEncoder(); 

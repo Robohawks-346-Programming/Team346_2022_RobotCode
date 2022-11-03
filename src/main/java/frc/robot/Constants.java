@@ -83,7 +83,7 @@ public final class Constants {
     // Motor revolutions
     public static final double CLIMBER_REV_CYL_EXT              = 0.7; //146.7
     public static final double CLIMBER_REV_CYL_RET              = 0.1; //133.2
-    public static final int CLIMBER_REV_UP                      = 0;
+    public static final double CLIMBER_REV_UP                   = 0.1;
 
     //PIDs
     public static final double DRIVE_P                          = 0;
