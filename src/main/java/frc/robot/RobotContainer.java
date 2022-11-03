@@ -5,7 +5,7 @@
 package frc.robot;
 
 
-import frc.robot.commands.ExampleCommand;
+//import frc.robot.commands.ExampleCommand;
 // import frc.robot.commands.Auto.FarLeft2Ball;
 import frc.robot.commands.Auto.MoveOnly;
 import frc.robot.commands.Auto.New;
@@ -13,13 +13,10 @@ import frc.robot.commands.Auto.TestAuto;
 import frc.robot.commands.Drivetrain.JoystickDrive;
 import frc.robot.subsystems.Climber;
 import frc.robot.subsystems.Drivetrain;
-import frc.robot.subsystems.ExampleSubsystem;
+//import frc.robot.subsystems.ExampleSubsystem;
 import frc.robot.subsystems.Intake;
 import frc.robot.subsystems.Shooter;
 import frc.robot.subsystems.VisionProcessor;
-
-import java.sql.Driver;
-
 import edu.wpi.first.wpilibj2.command.Command;
 
 /**
@@ -30,7 +27,7 @@ import edu.wpi.first.wpilibj2.command.Command;
  */
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
-  private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
+  //private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
   public static final Drivetrain drivetrain = new Drivetrain();
   public static final Shooter shooter = new Shooter();
   public static final Climber climber = new Climber();
@@ -40,7 +37,7 @@ public class RobotContainer {
   // public static final FarLeft2Ball auto2 = new FarLeft2Ball();
   public static final TestAuto auto3 = new TestAuto();
   public static final New auto4 = new New();
-  private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
+  //private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
   
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
