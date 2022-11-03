@@ -30,7 +30,7 @@ public class ClimberRetract extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    RobotContainer.climber.climberArmRetract(Constants.CLIMBER_MOTOR_SPEED);
+    RobotContainer.climber.climberArmRetract(Constants.CLIMBER_RETRACT_MOTOR_SPEED);
     //SmartDashboard.putNumber("Climber Motor Retract", RobotContainer.climber.getMotorRevolutions());
   }
 
@@ -38,13 +38,14 @@ public class ClimberRetract extends CommandBase {
   @Override
   public void end(boolean interrupted) {
     RobotContainer.climber.climberArmRetract(0.0);
-    RobotContainer.climber.setClimberMotorRev();
+    //RobotContainer.climber.setClimberMotorRev();
     
   }
 
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
+    System.out.println(" it's done");
     return RobotContainer.climber.isClimberRetracted();
   }
 }

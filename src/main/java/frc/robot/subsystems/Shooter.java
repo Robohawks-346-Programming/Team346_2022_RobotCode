@@ -15,7 +15,7 @@ public class Shooter extends SubsystemBase{
     RelativeEncoder shooterEncoder;
     
     double gravity = 32.2; // acceleration of gravity, ft/s^2
-    double diameter = Constants.SHOOTER_WHEEL_DIAMETER/12; // diameter of shooter wheel : 4 in, ft
+    double diameter = Constants.SHOOTER_WHEEL_DIAMETER/12; // diameter of shooter wheel : conversion from inches to feet
     double angle; //Initial angle ball leaves shooter, could be constant or variable, in degrees
   
     double kP,kI,kD,kIZ,kFF,kMinOut,kMaxOut;
@@ -32,8 +32,6 @@ public class Shooter extends SubsystemBase{
         kMinOut = Constants.SHOOTER_MIN_OUTPUT;
         kMaxOut = Constants.SHOOTER_MAX_OUTPUT;
 
-        
-
         shooterPIDController = shooter.getPIDController();
         shooterEncoder = shooter.getEncoder();
 
@@ -44,48 +42,29 @@ public class Shooter extends SubsystemBase{
         shooterPIDController.setFF(kFF);
         shooterPIDController.setOutputRange(kMinOut, kMaxOut);
 
-        SmartDashboard.putNumber("Shooter P", kP);
-        SmartDashboard.putNumber("Shooter I", kI);
-        SmartDashboard.putNumber("Shooter D", kD);
-        SmartDashboard.putNumber("Shooter IZ", kIZ);
-        SmartDashboard.putNumber("Shooter FF", kFF);
-        SmartDashboard.putNumber("Shooter Min Output", kMinOut);
-        SmartDashboard.putNumber("Shooter Max Output", kMaxOut);
-
-        P = SmartDashboard.getNumber("Shooter P", 0);
-        I = SmartDashboard.getNumber("Shooter I", 0);
-        D = SmartDashboard.getNumber("Shooter D", 0);
-        IZ = SmartDashboard.getNumber("Shooter IZ", 0);
-        FF = SmartDashboard.getNumber("Shooter FF", 0);
-        MinOut = SmartDashboard.getNumber("Shooter Min Output", 0);
-        MaxOut = SmartDashboard.getNumber("Shooter Max Output", 0);
-
-        if((P != kP)) { shooterPIDController.setP(P); kP = P; }
-        if((I != kI)) { shooterPIDController.setI(I); kI = I; }
-        if((D != kD)) { shooterPIDController.setD(D); kD = D; }
-        if((IZ != kIZ)) { shooterPIDController.setIZone(IZ); kIZ = IZ; }
-        if((FF != kFF)) { shooterPIDController.setFF(FF); kFF = FF; }
-        if((MaxOut != kMaxOut) || (MinOut != kMinOut)) { 
-          shooterPIDController.setOutputRange(MinOut, MaxOut); 
-          kMinOut = MinOut; kMaxOut = MaxOut;
-        }
     }
 
     public void shootBall(double shooterSpeed) {
         shooter.set(shooterSpeed);
+        SmartDashboard.putNumber("Shooter RPM", shooterEncoder.getVelocity());
     }
 
     public void shootBallReverse(double shooterSpeed) {
         shooter.set(-shooterSpeed);
     }
 
-    public double getShooterVelocity(double distance, int angle) {
-         return Math.sqrt((distance * gravity)/Math.sin(angle))/(Math.PI*diameter);
-    }
-
-    public void setShooterVelocity(double distance, int angle) {
-        setPoint = getShooterVelocity(distance, angle);
+    public void setShooterVelocity(double setPoint) {
+        boolean shooterVelocity;
+        SmartDashboard.putNumber("Shooter Setpoint", setPoint);
         shooterPIDController.setReference(setPoint, CANSparkMax.ControlType.kVelocity);
+        SmartDashboard.putNumber("Shooter RPM", shooterEncoder.getVelocity());
+        if(setPoint+50 <= shooterEncoder.getVelocity() && setPoint-50 >= shooterEncoder.getVelocity()) { //Constant may change 
+            shooterVelocity = true;
+        }
+        else {
+            shooterVelocity = false;
+        }
+        SmartDashboard.putBoolean("Shooter is Good", shooterVelocity); //Tells when ready to shoot
     }
 
 }

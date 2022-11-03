@@ -30,10 +30,10 @@ public class Drivetrain extends SubsystemBase {
         rightPrimary = new CANSparkMax(Constants.RIGHT_PRIMARY_MOTOR_ID, MotorType.kBrushless);
         rightReplica = new CANSparkMax(Constants.RIGHT_REPLICA_MOTOR_ID, MotorType.kBrushless);
 
-        leftPrimary.setIdleMode(IdleMode.kBrake);
-        leftReplica.setIdleMode(IdleMode.kBrake);
-        rightPrimary.setIdleMode(IdleMode.kBrake);
-        rightReplica.setIdleMode(IdleMode.kBrake);
+        leftPrimary.setIdleMode(IdleMode.kCoast);
+        leftReplica.setIdleMode(IdleMode.kCoast);
+        rightPrimary.setIdleMode(IdleMode.kCoast);
+        rightReplica.setIdleMode(IdleMode.kCoast);
 
         leftEncoder = leftPrimary.getEncoder();
         rightEncoder = rightPrimary.getEncoder(); 

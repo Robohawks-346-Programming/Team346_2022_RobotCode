@@ -9,7 +9,7 @@ import frc.robot.RobotContainer;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
 /** An example command that uses an example subsystem. */
-public class ShootBallTarmac extends CommandBase {
+public class ShootTarmac extends CommandBase {
   @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
 
   /**
@@ -17,7 +17,7 @@ public class ShootBallTarmac extends CommandBase {
    *
    * @param subsystem The subsystem used by this command.
    */
-  public ShootBallTarmac() {
+  public ShootTarmac() {
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(RobotContainer.shooter);
   }

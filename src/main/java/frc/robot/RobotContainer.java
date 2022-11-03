@@ -8,6 +8,7 @@ package frc.robot;
 import frc.robot.commands.ExampleCommand;
 // import frc.robot.commands.Auto.FarLeft2Ball;
 import frc.robot.commands.Auto.MoveOnly;
+import frc.robot.commands.Auto.New;
 import frc.robot.commands.Auto.TestAuto;
 import frc.robot.commands.Drivetrain.JoystickDrive;
 import frc.robot.subsystems.Climber;
@@ -38,6 +39,7 @@ public class RobotContainer {
   public static final MoveOnly auto1 = new MoveOnly();
   // public static final FarLeft2Ball auto2 = new FarLeft2Ball();
   public static final TestAuto auto3 = new TestAuto();
+  public static final New auto4 = new New();
   private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
   
 
@@ -68,6 +70,6 @@ public class RobotContainer {
    */
   public Command getAutonomousCommand() {
     // An ExampleCommand will run in autonomous
-    return auto3;
+    return auto4;
   }
 }

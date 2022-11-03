@@ -54,16 +54,15 @@ public class OI {
         BUTTON_2.whileHeld(new ClimberExtend()); // Needs to change to whenPressed, once done testing
         BUTTON_3.whenPressed(new ClimberPneumaticExtend());
         BUTTON_4.whileHeld(new InternalManipulator2Out());
-        BUTTON_5.whileHeld(new ShootBallTarmac());
+        BUTTON_5.whileHeld(new ShootAtDistance());
         BUTTON_6.whileHeld(new DeployIntake());
         BUTTON_7.whenPressed(new HighGear());
 
         BUTTON_9.whenPressed(new ClimberRetract());
         BUTTON_10.whenPressed(new ClimberPneumaticRetract());
-
-
+        BUTTON_12.whileHeld(new ShootLowGoal());
         BUTTON_13.whileHeld(new InternalManipulator2In());
-        BUTTON_14.whileHeld(new ShootBallPad());
+        BUTTON_14.whileHeld(new ShootTarmac());
         BUTTON_15.whileHeld(new InternalManipulator1In());
         BUTTON_16.whenPressed(new LowGear());
 

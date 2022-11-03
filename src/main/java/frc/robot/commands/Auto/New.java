@@ -14,38 +14,31 @@ import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import edu.wpi.first.wpilibj2.command.WaitCommand;
 
 /** An example command that uses an example subsystem. */
-public class TestAuto extends SequentialCommandGroup {
-  @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
+public class New extends SequentialCommandGroup {
+  @SuppressWarnings({ "PMD.UnusedPrivateField", "PMD.SingularField" })
   /**
    * Creates a new ExampleCommand.
    *
    * @param subsystem The subsystem used by this command.
    */
-  public TestAuto() {
+  public New() {
     // Use addRequirements() here to declare subsystem dependencies.
     addCommands(
-      new ParallelCommandGroup(
-          new DeployIntake(),
-          new SequentialCommandGroup(
-            new DriveStraightToEncoderDistanceOrTime(-40.0, -0.5),
-            new ParallelDeadlineGroup(
-              new WaitCommand(2.5),
-              //new TimeDrive(0.5,0.5),
-              new CenterWithTarget(),
+        new ParallelCommandGroup(
+            new HighGear(),
+            new DeployIntake(),
+            new SequentialCommandGroup(
+                new DriveStraightToEncoderDistanceOrTime(-40.0, -0.5),
+                new TimeDrive(1.25, 0.5), //may not need to drive back in 
+                new CenterWithTarget(),
                 new ParallelDeadlineGroup(
-                  new WaitCommand(5),
-                  new ShootBallTarmacAuto(),
-                  new SequentialCommandGroup(
-                    new WaitCommand(3),
-                    new InternalManipulator2In()
-              )
-            )
-          )
-        ) 
-      )
-    );
+                    new WaitCommand(7),
+                    new ShootAtDistance(),
+                    new SequentialCommandGroup(
+                        new WaitCommand(4), //need wait for internal
+                        new InternalManipulator2In()))
+
+            )));
   }
-
-
 
 }

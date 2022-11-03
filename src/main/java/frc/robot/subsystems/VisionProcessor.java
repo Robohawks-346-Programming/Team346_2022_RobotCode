@@ -110,7 +110,7 @@ public class VisionProcessor implements Subsystem{
         double targetHeight = Constants.TARGET_HEIGHT;
         double targetAngle = getNTInfo("ty") + 2.5; //Needs to add 5 to correct limelight error. Found through testing
         double offsetAngle = Constants.LIMELIGHT_ANGLE; 
-        double totalRads = (offsetAngle + targetAngle) * (3.14159265 / 180);
+        double totalRads = (offsetAngle + targetAngle) * (Math.PI / 180);
         SmartDashboard.putNumber("Angle Offset: ", offsetAngle);
         SmartDashboard.putNumber("Target Angle: ", targetAngle);
         double distance = ((targetHeight-limelightHeight)/(Math.tan(totalRads))); 

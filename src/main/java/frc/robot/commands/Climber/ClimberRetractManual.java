@@ -32,7 +32,7 @@ public class ClimberRetractManual extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-      RobotContainer.climber.climberArmRetract(Constants.CLIMBER_MOTOR_SPEED);
+      RobotContainer.climber.climberArmRetract(Constants.CLIMBER_RETRACT_MOTOR_SPEED);
 
   }
 

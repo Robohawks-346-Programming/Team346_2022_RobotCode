@@ -44,13 +44,15 @@ public final class Constants {
     public static final int CLIMBER_OUT_PNUEMATIC_ID            = 5;
 
     //Intake motor speed
-    public static final double INTAKE_MOTOR_SPEED               = 0.5;
-    public static final double INTERNAL_MANIPULATOR_1_MOTOR_SPEED = -0.35;
+    public static final double INTAKE_MOTOR_SPEED               = 0.75;
+    public static final double INTERNAL_MANIPULATOR_1_MOTOR_SPEED = -0.5;
     public static final double INTERNAL_MANIPULATOR_2_MOTOR_SPEED = 0.5;
 
-    public static final double CLIMBER_MOTOR_SPEED              = -0.5;
+    public static final double CLIMBER_EXTEND_MOTOR_SPEED       = -0.75; //0.5
+    public static final double CLIMBER_RETRACT_MOTOR_SPEED      = -0.75; //-0.75
 
-    public static final double SHOOTER_TARMAC_MOTOR_SPEED       = -0.74;
+    public static final double SHOOTER_TARMAC_MOTOR_SPEED       = -0.75; //-0.75
+    public static final double SHOOTER_LOW_GOAL_MOTOR_SPEED     = -0.375; 
     public static final double SHOOTER_MOTOR_SPEED              = -0.25;
 
     public static final double SHOOTER_PAD_MOTOR_SPEED          = -0.6; // original = 0.78, don't go above 0.88, don't go below 0.58? 
@@ -68,7 +70,7 @@ public final class Constants {
     public static final int VISION_LED_OFF                      = 1;
     public static final double VISION_TURN                      = 0.5;
     public static final int VISION_MOVE                         = 0;
-    public static final double X_THRESHOLD                      = 5;
+    public static final double X_THRESHOLD                      = 3; // 5
     public static final double Y_THRESHOLD                      = 0;
 
 
@@ -83,7 +85,7 @@ public final class Constants {
     // Motor revolutions
     public static final double CLIMBER_REV_CYL_EXT              = 0.7; //146.7
     public static final double CLIMBER_REV_CYL_RET              = 0.1; //133.2
-    public static final double CLIMBER_REV_UP                   = 0.1;
+    public static final double CLIMBER_REV_UP                   = 0.5;
 
     //PIDs
     public static final double DRIVE_P                          = 0;
@@ -96,9 +98,9 @@ public final class Constants {
     public static final double SHOOTER_I                        = 0;
     public static final double SHOOTER_D                        = 0;
     public static final double SHOOTER_IZ                       = 0;
-    public static final double SHOOTER_FF                       = 0;
-    public static final double SHOOTER_MIN_OUTPUT               = 0;
-    public static final double SHOOTER_MAX_OUTPUT               = 0;
+    public static final double SHOOTER_FF                       = 0.01;
+    public static final double SHOOTER_MIN_OUTPUT               = 2000;
+    public static final double SHOOTER_MAX_OUTPUT               = 4000;
 
     //Robot parameters
     public static final int DRIVETRAIN_WHEEL_DIAMETER           = 5; //5 inch wheels

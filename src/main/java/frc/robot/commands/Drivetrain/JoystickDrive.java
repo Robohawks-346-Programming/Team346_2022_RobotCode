@@ -28,7 +28,7 @@ public class JoystickDrive extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    RobotContainer.drivetrain.arcadeDrive(OI.driverControl.getRightX(),OI.driverControl.getLeftY());
+    RobotContainer.drivetrain.arcadeDrive(OI.driverControl.getLeftY(),OI.driverControl.getRightX());
   }
 
   // Called once the command ends or is interrupted.
