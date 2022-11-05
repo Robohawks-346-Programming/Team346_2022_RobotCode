@@ -28,8 +28,8 @@ public class ShootAtDistance extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    // RobotContainer.shooter.shootBall(-((0.36502157*Math.log(RobotContainer.visionprocessor.getDistanceToTarget()))-0.01034263));
-    RobotContainer.shooter.setShooterVelocity(-((2349.28675*Math.log(RobotContainer.visionprocessor.getDistanceToTarget()))-807.11837));
+    RobotContainer.shooter.shootBall(-((0.36502157*Math.log(RobotContainer.visionprocessor.getDistanceToTarget()))-0.01034263)); //Percent based
+    //RobotContainer.shooter.setShooterVelocity(((2349.28675*Math.log(RobotContainer.visionprocessor.getDistanceToTarget()))-807.11837)); velocity based
   }
 
   // Called once the command ends or is interrupted.

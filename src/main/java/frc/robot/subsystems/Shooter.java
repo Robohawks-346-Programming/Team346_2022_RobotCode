@@ -43,6 +43,7 @@ public class Shooter extends SubsystemBase{
         shooterPIDController.setOutputRange(kMinOut, kMaxOut);
 
     }
+    
 
     public void shootBall(double shooterSpeed) {
         shooter.set(shooterSpeed);

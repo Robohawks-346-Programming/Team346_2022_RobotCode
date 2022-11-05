@@ -25,11 +25,11 @@ public class New extends SequentialCommandGroup {
     // Use addRequirements() here to declare subsystem dependencies.
     addCommands(
         new ParallelCommandGroup(
-            new HighGear(),
+            //new HighGear(),
             new DeployIntake(),
             new SequentialCommandGroup(
-                new DriveStraightToEncoderDistanceOrTime(-40.0, -0.5),
-                new TimeDrive(1.25, 0.5), //may not need to drive back in 
+                new DriveStraightToEncoderDistanceOrTime(-13.0, -0.4),
+                new TimeDrive(0.5, 0.5), //may not need to drive back in 
                 new CenterWithTarget(),
                 new ParallelDeadlineGroup(
                     new WaitCommand(7),

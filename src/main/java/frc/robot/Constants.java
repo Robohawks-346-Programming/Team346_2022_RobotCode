@@ -15,7 +15,7 @@ package frc.robot;
 public final class Constants {
 
     //Motor IDs
-    public static final int LEFT_PRIMARY_MOTOR_ID               = 12;
+    public static final int LEFT_PRIMARY_MOTOR_ID               = 14;
     public static final int LEFT_REPLICA_MOTOR_ID               = 13;
     public static final int RIGHT_PRIMARY_MOTOR_ID              = 10;
     public static final int RIGHT_REPLICA_MOTOR_ID              = 11;
@@ -98,7 +98,7 @@ public final class Constants {
     public static final double SHOOTER_I                        = 0;
     public static final double SHOOTER_D                        = 0;
     public static final double SHOOTER_IZ                       = 0;
-    public static final double SHOOTER_FF                       = 0.01;
+    public static final double SHOOTER_FF                       = 0.1;
     public static final double SHOOTER_MIN_OUTPUT               = 2000;
     public static final double SHOOTER_MAX_OUTPUT               = 4000;
 

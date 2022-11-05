@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import frc.robot.commands.Drivetrain.JoystickDrive;
 import frc.robot.commands.VisionProcessor.GetDistance;
+import frc.robot.commands.VisionProcessor.IsDistance;
 
 /**
  * The VM is configured to automatically run this class, and to call the functions corresponding to
@@ -87,6 +88,7 @@ public class Robot extends TimedRobot {
     CommandScheduler.getInstance().cancelAll();
     RobotContainer.drivetrain.setDefaultCommand(new JoystickDrive());
     RobotContainer.visionprocessor.setDefaultCommand(new GetDistance());
+    RobotContainer.visionprocessor.setDefaultCommand(new IsDistance());
 
   }
 
@@ -95,6 +97,7 @@ public class Robot extends TimedRobot {
   public void teleopPeriodic() {
     CommandScheduler.getInstance().run();
     SmartDashboard.putBoolean("Limit Switch", RobotContainer.climber.getReverseLimitPosition());
+    SmartDashboard.putBoolean("IsCentered", RobotContainer.visionprocessor.isCentered());
   }
 
 
